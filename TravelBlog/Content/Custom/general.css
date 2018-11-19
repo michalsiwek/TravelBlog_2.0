@@ -1,0 +1,246 @@
+body
+{
+    background-color: #151d2b;
+    color: #cccccc;
+    font-family: 'Nunito', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+a
+{
+    text-decoration: none;
+    color: #cccccc;
+}
+button
+{
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    border: none;
+	letter-spacing: 1px;
+	outline: none;
+    border-radius: 5px;
+}
+#logo
+{
+    text-align: center;
+    color: #cccccc;
+    font-size: 48px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+#topnav
+{
+    background-color: #1c74b2;
+	text-align: center;
+}
+.menu
+{
+    padding: 0px;
+    margin: 0px;
+}
+.menu li
+{
+    display: inline-block;
+    width: 180px;
+    border-right: 1px solid #0a5290;
+    cursor: pointer;
+    padding: 0px;
+}
+.menu li:hover
+{
+    background-color: #0a5290;
+}
+.menu li:first-child
+{
+    border-left: 1px solid #0a5290;
+}
+.menu a
+{
+    font-size: 20px;
+    color: #cccccc;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+}
+
+.paragraph
+{
+    max-width: 900px;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 30px;
+}
+.paragraph h2
+{
+    margin-bottom: 40px;
+}
+.article-header
+{
+    color: #1c74b2;
+    display: flex;
+    align-content: center;
+    line-height: 0;
+}
+.article-header::before,
+.article-header::after
+{
+    content: '';
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+/* STICKY TITLE BAR */
+#title-bar, #title-bar-sticky {
+    /* Background pattern from Toptal Subtle Patterns */
+    background-image: url("Images/diagmonds_2x.png");
+    padding: 10px;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 20px;
+}
+#title-bar span
+{
+    letter-spacing: 0;
+}
+#title-bar-sticky
+{
+    display: none;
+}
+.sticky-title
+{
+    position: fixed;
+    z-index: 950;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* PAGE PAGINATION */
+.pagination
+{
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.pagination a
+{
+    color: #cccccc;
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+.pagination a.active-page
+{
+    background-color: #cccccc;
+    color: #111111;
+    font-weight: bold;
+}
+.pagination a:hover:not(.active-page) 
+{
+    background-color: #cccccc;
+    color: #151d2b;
+}
+
+/* ASIDES */
+aside
+{
+    display: block;
+    margin: 0 30px 0 30px;
+}
+.aside-content h2
+{
+    color: #1c74b2;
+    text-align: center;
+    max-width: 100%;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.aside-continent:first-of-type
+{
+    border-top: 1px #1c74b2 solid;
+}
+.aside-continent a
+{
+    max-width: 100%;;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px #1c74b2 solid;
+}
+.aside-continent a:hover
+{
+    background-color: #1c74b2;
+    cursor: pointer;
+}
+.aside-ad-box
+{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+/* FOOTER */
+footer
+{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: #aaaaaa;
+    background-color: #151d2b;
+}
+footer > h
+{
+    font-size: 10px;
+    letter-spacing: 5px;
+    padding: 10px;
+}
+.socials
+{
+	width: 100%;
+	text-align: center;
+    background-color: #222222;
+}
+.socialdivs
+{
+	margin: auto;
+    font-size: 0;
+}
+.social-button
+{
+	width: 240px;
+	display: inline-block;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    cursor: pointer;
+}
+.social-button a
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#fb-bt:hover
+{
+	background-color: #4668b3;
+    color: #eeeeee;
+}
+#insta-bt:hover {
+    background-image: url("Images/insta-bcg.jpg");
+    color: #eeeeee;
+}
+#yt-bt:hover
+{
+	background-color: #d94348;
+    color: #eeeeee;
+}
+#tt-bt:hover
+{
+	background-color: #3095d3;
+    color: #eeeeee;
+}

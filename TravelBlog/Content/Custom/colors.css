@@ -1,0 +1,9 @@
+:root {
+    @bgd: #151d2b;
+    --lighter-bcg: #262e3e;
+    --global-txt: #cccccc;
+    --nav: #1c74b2;
+    --nav-hoover: #0a5290;
+    --socials-bar: #222222;
+    --comments-bcg: #333333;
+}

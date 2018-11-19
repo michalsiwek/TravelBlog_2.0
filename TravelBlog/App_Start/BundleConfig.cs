@@ -23,8 +23,18 @@ namespace TravelBlog
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      //"~/Content/bootstrap.css",
+                      //"~/Content/site.css",
+                      "~/Content/Custom/colors.css",
+                      "~/Content/Custom/contanct.css",
+                      "~/Content/Custom/entries.css",
+                      "~/Content/Custom/entry.css",
+                      "~/Content/Custom/galleries.css",
+                      "~/Content/Custom/gallery.css",
+                      "~/Content/Custom/general.css",
+                      "~/Content/Custom/index.css",
+                      "~/Content/Custom/spec-entries.css"
+                      ));
         }
     }
 }
