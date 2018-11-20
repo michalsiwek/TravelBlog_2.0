@@ -23,8 +23,8 @@ namespace TravelBlog
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      //"~/Content/bootstrap.css",
-                      //"~/Content/site.css",
+                      "~/Content/bootstrap.css",
+                      "~/Content/site.css",
                       "~/Content/Custom/colors.css",
                       "~/Content/Custom/contanct.css",
                       "~/Content/Custom/entries.css",
@@ -35,6 +35,20 @@ namespace TravelBlog
                       "~/Content/Custom/index.css",
                       "~/Content/Custom/spec-entries.css"
                       ));
+
+            bundles.Add(new StyleBundle("~/Content/Fontello").Include(
+                "~/Content/Fontello/animation.css",
+                "~/Content/Fontello/fontello-codes.css",
+                "~/Content/Fontello/fontello-embedded.css",
+                "~/Content/Fontello/fontello-ie7-codes.css",
+                "~/Content/Fontello/fontello-ie7.css",
+                "~/Content/Fontello/fontello.css"
+            ));
+
+            bundles.Add(new StyleBundle("~/Content/Custom/index").Include(
+                "~/Content/Custom/general.css",
+                "~/Content/Custom/index.css"
+            ));
         }
     }
 }

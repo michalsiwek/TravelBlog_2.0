@@ -168,7 +168,14 @@
     <Content Include="Content\Custom\general.css" />
     <Content Include="Content\Custom\index.css" />
     <Content Include="Content\Custom\spec-entries.css" />
+    <Content Include="Content\Fontello\animation.css" />
+    <Content Include="Content\Fontello\fontello-codes.css" />
+    <Content Include="Content\Fontello\fontello-embedded.css" />
+    <Content Include="Content\Fontello\fontello-ie7-codes.css" />
+    <Content Include="Content\Fontello\fontello-ie7.css" />
+    <Content Include="Content\Fontello\fontello.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontello.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -177,6 +184,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\fontello.ttf" />
+    <Content Include="fonts\fontello.eot" />
+    <Content Include="fonts\fontello.woff" />
+    <Content Include="fonts\fontello.woff2" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\Custom\disqus.js" />
     <Content Include="Scripts\Custom\fotoPreview.js" />

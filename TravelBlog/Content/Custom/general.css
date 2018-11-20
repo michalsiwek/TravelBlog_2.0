@@ -3,9 +3,7 @@ body
     background-color: #151d2b;
     color: #cccccc;
     font-family: 'Nunito', sans-serif;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
+    margin: 0 auto;
 }
 a
 {
@@ -231,7 +229,7 @@ footer > h
     color: #eeeeee;
 }
 #insta-bt:hover {
-    background-image: url("Images/insta-bcg.jpg");
+    background-image: url("/Images/insta-bcg.jpg");
     color: #eeeeee;
 }
 #yt-bt:hover

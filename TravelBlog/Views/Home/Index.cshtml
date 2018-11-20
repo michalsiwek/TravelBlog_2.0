@@ -1,11 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="pl">
-
 <head>
 
     <meta charset="utf-8">
     <title>Travel Blog</title>
-    <meta name="description" content="Dookoła świata. Podróże małe i duże.">
+    <meta name="description" content="">
     <meta name="keywords" content="podróże, świat, blog, lifestyle">
     <meta name="author" content="ParaDiceDev">
 
@@ -14,28 +13,28 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&amp;subset=latin-ext" rel="stylesheet">
 
     <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
 </head>
-
 <body>
-
     <header>
-        <h1 id="logo"><a href="index.htm">Travel Blog</a></h1>
+        <div class="home-bcg-box">
+            <div class="bcg-box-text-placeholder">
+                <div class="bcg-box-text">
+                    <h1 id="index-logo"><a href="index.htm">Travel Blog</a></h1>
+                </div>
+            </div>
+        </div>
         <nav id="topnav">
             <ul class="menu">
-                <li><a href="#">Strona główna</a></li>
-                <li>
+                <li><a href="#">Strona główna</a></li><li>
                     <a href="entries.htm">Wpisy</a>
-                </li>
-                <li>
+                </li><li>
                     <a href="galleries.htm">Galeria</a>
-                </li>
-                <li>
+                </li><li>
                     <a href="guides.htm">Poradniki</a>
-                </li>
-                <li>
+                </li><li>
                     <a id="nav-contact" href="#">Kontakt</a>
                 </li>
             </ul>
@@ -48,22 +47,22 @@
                 <div id="continents">
                     <figure class="continent">
                         <a href="spec-entries.htm">
-                            <img src="Images/alps.jpg" alt="europe" />
+                            <img src="/Images/alps.jpg" alt="europe" />
                             <figcaption>Europa</figcaption>
                         </a>
                     </figure><figure class="continent">
                         <a href="spec-entries.htm">
-                            <img src="Images/new-york.jpg" alt="north-america" />
+                            <img src="/Images/new-york.jpg" alt="north-america" />
                             <figcaption>Ameryka Płn.</figcaption>
                         </a>
                     </figure><figure class="continent">
                         <a href="spec-entries.htm">
-                            <img src="Images/rio.jpg" alt="south-america" />
+                            <img src="/Images/rio.jpg" alt="south-america" />
                             <figcaption>Ameryka Płd.</figcaption>
                         </a>
                     </figure><figure class="continent">
                         <a href="spec-entries.htm">
-                            <img src="Images/palawan.jpg" alt="asia" />
+                            <img src="/Images/palawan.jpg" alt="asia" />
                             <figcaption>Azja i Oceania</figcaption>
                         </a>
                     </figure>
@@ -109,7 +108,7 @@
                         <div class="entry">
                             <a href="entry.htm">
                                 <div class="img-container">
-                                    <img src="Images/taipei.jpg" alt="entry-main-img" />
+                                    <img src="/Images/taipei.jpg" alt="entry-main-img" />
                                 </div>
                                 <div>
                                     <h3>Lorem ipsum dolor sit amet</h3>
@@ -122,7 +121,7 @@
                         <div class="entry">
                             <a href="entry.htm">
                                 <div class="img-container">
-                                    <img src="Images/siquijor.jpg" alt="entry-main-img" />
+                                    <img src="/Images/siquijor.jpg" alt="entry-main-img" />
                                 </div>
                                 <div>
                                     <h3>Nunc lobortis cursus laoreet</h3>
@@ -135,7 +134,7 @@
                         <div class="entry">
                             <a href="entry.htm">
                                 <div class="img-container">
-                                    <img src="Images/vienna.jpg" alt="entry-main-img" />
+                                    <img src="/Images/vienna.jpg" alt="entry-main-img" />
                                 </div>
                                 <div>
                                     <h3>Ut scelerisque arcu enim, at congue elit rhoncus tempus</h3>
@@ -196,13 +195,12 @@
         <h>ParaDiceDev &copy; All Rights Reserved 201</h>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="scripts/jquery.scrollTo.min.js"></script>
-    <script src="scripts/indexScrollToContact.js"></script>
+    @Styles.Render("~/Content/Custom/index")
+    @Styles.Render("~/Content/Fontello")
+
+    @section Scripts
+    {
+        @Scripts.Render("~/bundles/custom")
+    }
 </body>
-
-@Styles.Render("~/Content/css")
-
 </html>
-
-@Styles.Render("~/Content/css")
