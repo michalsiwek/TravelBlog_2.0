@@ -32,7 +32,7 @@
         <nav id="topnav">
             <ul class="menu">
                 <li><a href="#">Strona główna</a></li><li>
-                    <a href="entries.htm">Wpisy</a>
+                    @Html.ActionLink("Wpisy", "Index", "Entries")
                 </li><li>
                     <a href="galleries.htm">Galeria</a>
                 </li><li>
@@ -172,7 +172,7 @@
                 <div style="clear:both"></div>
             </div>
         </div>
-        <h>ParaDiceDev &copy; All Rights Reserved 201</h>
+        <h>ParaDiceDev &copy; All Rights Reserved 2018</h>
     </footer>
 
     @Styles.Render("~/Content/Custom/index")

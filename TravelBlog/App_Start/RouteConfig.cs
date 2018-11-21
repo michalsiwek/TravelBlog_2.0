@@ -18,6 +18,12 @@ namespace TravelBlog
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Filtered",
+                url: "{controller}/{action}/{categoryName}",
+                defaults: new { controller = "Entries", action = "Filtered", categoryName = UrlParameter.Optional }
+            );
         }
     }
 }

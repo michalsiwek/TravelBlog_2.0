@@ -20,7 +20,15 @@ namespace TravelBlog
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                        "~/Scripts/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
+                        "~/Scripts/Custom/disqus.js",
+                        "~/Scripts/Custom/fotoPreview.js",
+                        "~/Scripts/Custom/indexScrollToContact.js",
+                        "~/Scripts/Custom/jquery.scrollTo.min.js",
+                        "~/Scripts/Custom/scrollUp.js",
+                        "~/Scripts/Custom/stickyTitleBar.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -48,6 +56,17 @@ namespace TravelBlog
             bundles.Add(new StyleBundle("~/Content/Custom/index").Include(
                 "~/Content/Custom/general.css",
                 "~/Content/Custom/index.css"
+            ));
+
+            bundles.Add(new StyleBundle("~/Content/Custom/entries").Include(
+                "~/Content/Custom/general.css",
+                "~/Content/Custom/entries.css"
+            ));
+
+            bundles.Add(new StyleBundle("~/Content/Custom/spec-entries").Include(
+                "~/Content/Custom/general.css",
+                "~/Content/Custom/entries.css",
+                "~/Content/Custom/spec-entries.css"
             ));
         }
     }
