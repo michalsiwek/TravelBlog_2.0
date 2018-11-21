@@ -130,7 +130,7 @@ h3
     opacity: 0.8;
     transition: all 0.3s linear;
     align-items: baseline;
-     -webkit-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 #contact
 {

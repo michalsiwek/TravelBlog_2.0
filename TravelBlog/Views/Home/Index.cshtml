@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using TravelBlog.Models.Viewmodels
+@model EntriesViewModel
+
+<!DOCTYPE html>
 <html lang="pl">
 <head>
 
@@ -105,45 +108,22 @@
                         </header>
                     </div>
                     <div class="entries-box">
-                        <div class="entry">
-                            <a href="entry.htm">
-                                <div class="img-container">
-                                    <img src="/Images/taipei.jpg" alt="entry-main-img" />
-                                </div>
-                                <div>
-                                    <h3>Lorem ipsum dolor sit amet</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada volutpat massa, nec pulvinar eros dignissim sit amet. Vivamus sollicitudin lectus ipsum, a lacinia mauris tempus et. Fusce hendrerit vel lectus id mollis...
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="entry">
-                            <a href="entry.htm">
-                                <div class="img-container">
-                                    <img src="/Images/siquijor.jpg" alt="entry-main-img" />
-                                </div>
-                                <div>
-                                    <h3>Nunc lobortis cursus laoreet</h3>
-                                    <p>
-                                        Morbi id enim volutpat, efficitur odio et, malesuada dui. Nunc congue ultricies turpis, dictum malesuada tellus auctor ac. Maecenas egestas laoreet suscipit. Morbi id eros sed risus lacinia interdum ut a neque...
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="entry">
-                            <a href="entry.htm">
-                                <div class="img-container">
-                                    <img src="/Images/vienna.jpg" alt="entry-main-img" />
-                                </div>
-                                <div>
-                                    <h3>Ut scelerisque arcu enim, at congue elit rhoncus tempus</h3>
-                                    <p>
-                                        Curabitur sit amet urna posuere, tristique mauris eu, feugiat justo. Nunc ac diam quis lorem feugiat laoreet a ut lacus. Donec molestie, enim vel congue molestie, vel ultrices lorem turpis eget neque...
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
+                        @foreach (var entry in Model.Entries)
+                        {
+                            <div class="entry">
+                                <a href="entry.htm">
+                                    <div class="img-container">
+                                        <img src="@entry.ImageUrl" alt="entry-main-img"/>
+                                    </div>
+                                    <div>
+                                        <h3>@entry.Title</h3>
+                                        <p>
+                                            @entry.Description
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        }
                     </div>
                 </div>
             </section>

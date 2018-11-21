@@ -4,6 +4,7 @@ body
     color: #cccccc;
     font-family: 'Nunito', sans-serif;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 a
 {
