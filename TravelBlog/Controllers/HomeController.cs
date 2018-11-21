@@ -16,7 +16,7 @@ namespace TravelBlog.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly RequestDataRepository _requestDataRepository;
+        private readonly IRequestDataRepository _requestDataRepository;
 
         public HomeController() => _requestDataRepository = new RequestDataRepository();
 
