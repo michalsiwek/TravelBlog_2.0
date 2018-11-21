@@ -25,7 +25,7 @@ namespace TravelBlog.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Filtered(string categoryName)
+        public ActionResult Filter(string categoryName)
         {
             var viewModel = new EntriesViewModel
             {

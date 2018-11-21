@@ -224,7 +224,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Entries\Index.cshtml" />
-    <Content Include="Views\Entries\Filtered.cshtml" />
+    <Content Include="Views\Entries\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

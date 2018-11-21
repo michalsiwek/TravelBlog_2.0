@@ -20,9 +20,9 @@ namespace TravelBlog
             );
 
             routes.MapRoute(
-                name: "Filtered",
+                name: "Filter",
                 url: "{controller}/{action}/{categoryName}",
-                defaults: new { controller = "Entries", action = "Filtered", categoryName = UrlParameter.Optional }
+                defaults: new { controller = "Entries", action = "Filter", categoryName = UrlParameter.Optional }
             );
         }
     }
