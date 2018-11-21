@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using TravelBlog.Models;
+using TravelBlog.Models.Viewmodels;
 using TravelBlog.Repository;
 
 namespace TravelBlog.Controllers
@@ -21,9 +22,12 @@ namespace TravelBlog.Controllers
 
         public ActionResult Index()
         {
-            var top3 = _requestDataRepository.GetTop3EntriesByCreateDate();
+            var viewModel = new EntriesViewModel
+            {
+                Entries = _requestDataRepository.GetTop3EntriesByCreateDate()
+            };
 
-            return View();
+            return View(viewModel);
         }
 
         public ActionResult About()

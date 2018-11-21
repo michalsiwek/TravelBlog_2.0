@@ -154,6 +154,7 @@
     </Compile>
     <Compile Include="Infrastructure\RequestService.cs" />
     <Compile Include="Models\Entry.cs" />
+    <Compile Include="Models\Viewmodels\EntriesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\RequestDataRepository.cs" />
   </ItemGroup>
