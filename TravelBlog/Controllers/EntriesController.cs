@@ -25,6 +25,16 @@ namespace TravelBlog.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Entry(int id)
+        {
+            var viewModel = new EntryViewModel
+            {
+                Entry = _requestDataRepository.GetElement<Entry>(id)
+            };
+
+            return View(viewModel);
+        }
+
         public ActionResult Filter(string categoryName)
         {
             var viewModel = new EntriesViewModel

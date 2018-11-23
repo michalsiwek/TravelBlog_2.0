@@ -1,0 +1,65 @@
+﻿@using TravelBlog.Models.Viewmodels
+@model EntryViewModel
+
+<div id="scrollup" class="icon-angle-circled-up"></div>
+<div id="container">
+    <aside>
+        <div class="aside-content">
+            <div class="aside-ad-box">
+                <img src="/Images/ad_placeholder.jpg" alt="forto">
+            </div>
+        </div>
+    </aside>
+    <main id="entry-main">
+        <div id="scrollup" class="icon-angle-circled-up"></div>
+        <article>
+            <div id="content">
+                <header>
+                    <h1>@Model.Entry.Title</h1>
+                </header>
+                <p id="entry-data">@Model.Entry.CreateDate.ToShortDateString() | @Model.Entry.CreateDate.ToShortTimeString() | @Model.Entry.Author</p>
+                <div class="entry-main-img">
+                    <img src="@Model.Entry.ImageUrl" alt="entry-main-img" />
+                </div>
+                @foreach (var paragraph in Model.Entry.Content)
+                {
+                    <p>@paragraph</p>
+                }
+            </div>
+
+        </article>
+        <section>
+            <div id="comments">
+                <header>
+                    <h2 class="article-header">Komentarze</h2>
+                </header>
+                <div id="disqus_thread"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <aside>
+        <div class="aside-content">
+            <nav>
+                <h2>Kontynenty</h2>
+                <div class="aside-continent"><a href="spec-entries.htm">Europa</a></div>
+                <div class="aside-continent"><a href="spec-entries.htm">Ameryka Płd.</a></div>
+                <div class="aside-continent"><a href="spec-entries.htm">Ameryka Płn.</a></div>
+                <div class="aside-continent"><a href="spec-entries.htm">Azja i Oceania</a></div>
+            </nav>
+            <div class="aside-ad-box">
+                <img src="/Images/ad_placeholder.jpg">
+            </div>
+        </div>
+
+    </aside>
+
+</div>
+
+@Styles.Render("~/Content/Custom/entry")
+
+@section Scripts
+    {
+    @Scripts.Render("~/bundles/custom")
+}

@@ -1,4 +1,4 @@
-$(window).on('scroll', function() {stickTitleBar()});
+$(window).on('scroll', function() { stickTitleBar() });
 var titlebar = $("#title-bar");
 var sticky = titlebar.position().top;
 function stickTitleBar() {
