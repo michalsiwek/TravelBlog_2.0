@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TravelBlog.Models;
 using TravelBlog.Models.Viewmodels;
 using TravelBlog.Repository;
 
@@ -18,7 +19,27 @@ namespace TravelBlog.Controllers
         {
             var viewModel = new EntriesViewModel
             {
-                Entries = _requestDataRepository.GetTop3EntriesByCreateDate()
+                Entries = _requestDataRepository.GetEntriesByCreateDateDesc()
+            };
+
+            return View(viewModel);
+        }
+
+        public ActionResult Entry(int id)
+        {
+            var viewModel = new EntryViewModel
+            {
+                Entry = _requestDataRepository.GetElement<Entry>(id)
+            };
+
+            return View(viewModel);
+        }
+
+        public ActionResult Filter(string categoryName)
+        {
+            var viewModel = new EntriesViewModel
+            {
+                Entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(categoryName)
             };
 
             return View(viewModel);

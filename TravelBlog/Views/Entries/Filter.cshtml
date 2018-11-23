@@ -2,6 +2,8 @@
 @model EntriesViewModel
 
 <div id="scrollup" class="icon-angle-circled-up"></div>
+<div id="title-bar">@Model.Entries.First().CategoryName</div>
+<div id="title-bar-sticky">@Model.Entries.First().CategoryName</div>
 <div id="container">
     <aside>
         <div class="aside-content">
@@ -26,7 +28,7 @@
                     {
                         <p>@paragraph</p>
                     }
-                    <a class="go-to-entry" href="/Entries/Entry/@entry.Id">Czytaj</a>
+                    <a class="go-to-entry" href="entry.htm">Czytaj</a>
 
                 </div>
             </article>
@@ -60,9 +62,10 @@
 
 </div>
 
+
 @Styles.Render("~/Content/Custom/entries")
 
 @section Scripts
-    {
+{
     @Scripts.Render("~/bundles/custom")
 }

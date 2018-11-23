@@ -1,186 +1,109 @@
 ﻿@using TravelBlog.Models.Viewmodels
 @model EntriesViewModel
+@{
+    Layout = "~/Views/Shared/_MainPageLayout.cshtml";
+}
 
-<!DOCTYPE html>
-<html lang="pl">
-<head>
+<main>
+    <article>
+        <section>
+            <div id="continents">
+                <figure class="continent">
+                    <a href="spec-entries.htm">
+                        <img src="/Images/alps.jpg" alt="europe" />
+                        <figcaption>Europa</figcaption>
+                    </a>
+                </figure><figure class="continent">
+                    <a href="spec-entries.htm">
+                        <img src="/Images/new-york.jpg" alt="north-america" />
+                        <figcaption>Ameryka Płn.</figcaption>
+                    </a>
+                </figure><figure class="continent">
+                    <a href="spec-entries.htm">
+                        <img src="/Images/rio.jpg" alt="south-america" />
+                        <figcaption>Ameryka Płd.</figcaption>
+                    </a>
+                </figure><figure class="continent">
+                    <a href="spec-entries.htm">
+                        <img src="/Images/palawan.jpg" alt="asia" />
+                        <figcaption>Azja i Oceania</figcaption>
+                    </a>
+                </figure>
+            </div>
+        </section>
 
-    <meta charset="utf-8">
-    <title>Travel Blog</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="podróże, świat, blog, lifestyle">
-    <meta name="author" content="ParaDiceDev">
-
-    <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
-
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&amp;subset=latin-ext" rel="stylesheet">
-
-    <!--[if lt IE 9]>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-
-</head>
-<body>
-    <header>
-        <div class="home-bcg-box">
-            <div class="bcg-box-text-placeholder">
-                <div class="bcg-box-text">
-                    <h1 id="index-logo"><a href="index.htm">Travel Blog</a></h1>
+        <section>
+            <div id="blog-profile">
+                <div class="paragraph">
+                    <header>
+                        <h2 class="article-header">Info</h2>
+                    </header>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero ligula, porta quis quam at, convallis egestas lacus. Duis convallis efficitur volutpat. Nam pulvinar ullamcorper bibendum. Aenean sit amet justo in tellus porta pellentesque. Praesent tincidunt ornare nisi ac convallis. Etiam dictum molestie elementum. Etiam ullamcorper lectus et erat molestie, gravida consequat neque fringilla.
+                    </p>
                 </div>
             </div>
-        </div>
-        <nav id="topnav">
-            <ul class="menu">
-                <li><a href="#">Strona główna</a></li><li>
-                    <a href="entries.htm">Wpisy</a>
-                </li><li>
-                    <a href="galleries.htm">Galeria</a>
-                </li><li>
-                    <a href="guides.htm">Poradniki</a>
-                </li><li>
-                    <a id="nav-contact" href="#">Kontakt</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+        </section>
 
-    <main>
-        <article>
-            <section>
-                <div id="continents">
-                    <figure class="continent">
-                        <a href="spec-entries.htm">
-                            <img src="/Images/alps.jpg" alt="europe" />
-                            <figcaption>Europa</figcaption>
-                        </a>
-                    </figure><figure class="continent">
-                        <a href="spec-entries.htm">
-                            <img src="/Images/new-york.jpg" alt="north-america" />
-                            <figcaption>Ameryka Płn.</figcaption>
-                        </a>
-                    </figure><figure class="continent">
-                        <a href="spec-entries.htm">
-                            <img src="/Images/rio.jpg" alt="south-america" />
-                            <figcaption>Ameryka Płd.</figcaption>
-                        </a>
-                    </figure><figure class="continent">
-                        <a href="spec-entries.htm">
-                            <img src="/Images/palawan.jpg" alt="asia" />
-                            <figcaption>Azja i Oceania</figcaption>
-                        </a>
-                    </figure>
+        <section>
+            <div id="about-author">
+                <div class="paragraph">
+                    <header>
+                        <h2 class="article-header">O autorze</h2>
+                    </header>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada volutpat massa, nec pulvinar eros dignissim sit amet. Vivamus sollicitudin lectus ipsum, a lacinia mauris tempus et. Fusce hendrerit vel lectus id mollis. Fusce ultricies suscipit lorem eu finibus. Integer pharetra ipsum at leo mattis, id tempor enim dictum. Duis eu faucibus lacus. Donec tristique sapien eu ante sagittis dapibus. Aliquam hendrerit ultricies eleifend. In mattis dolor ut neque sodales laoreet. Mauris in porttitor tellus. Aliquam a fringilla elit, et commodo lacus. Quisque nec sodales nunc. Aliquam dignissim purus blandit porta elementum. Curabitur et dui sem. Cras scelerisque, ex quis volutpat finibus, justo erat maximus leo, ac tincidunt ipsum lorem ac elit. Quisque ut libero in nisl lacinia pulvinar.
+                        <br><br>
+                        Morbi id enim volutpat, efficitur odio et, malesuada dui. Nunc congue ultricies turpis, dictum malesuada tellus auctor ac. Maecenas egestas laoreet suscipit. Morbi id eros sed risus lacinia interdum ut a neque. Nulla vitae placerat elit, eget imperdiet ex. Fusce sapien arcu, luctus finibus nisi in, euismod efficitur nunc. Curabitur sit amet urna posuere, tristique mauris eu, feugiat justo. Nunc ac diam quis lorem feugiat laoreet a ut lacus. Donec molestie, enim vel congue molestie, augue magna ultricies turpis, vel ultrices lorem turpis eget neque.
+                    </p>
                 </div>
-            </section>
-
-            <section>
-                <div id="blog-profile">
-                    <div class="paragraph">
-                        <header>
-                            <h2 class="article-header">Info</h2>
-                        </header>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero ligula, porta quis quam at, convallis egestas lacus. Duis convallis efficitur volutpat. Nam pulvinar ullamcorper bibendum. Aenean sit amet justo in tellus porta pellentesque. Praesent tincidunt ornare nisi ac convallis. Etiam dictum molestie elementum. Etiam ullamcorper lectus et erat molestie, gravida consequat neque fringilla.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div id="about-author">
-                    <div class="paragraph">
-                        <header>
-                            <h2 class="article-header">O autorze</h2>
-                        </header>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada volutpat massa, nec pulvinar eros dignissim sit amet. Vivamus sollicitudin lectus ipsum, a lacinia mauris tempus et. Fusce hendrerit vel lectus id mollis. Fusce ultricies suscipit lorem eu finibus. Integer pharetra ipsum at leo mattis, id tempor enim dictum. Duis eu faucibus lacus. Donec tristique sapien eu ante sagittis dapibus. Aliquam hendrerit ultricies eleifend. In mattis dolor ut neque sodales laoreet. Mauris in porttitor tellus. Aliquam a fringilla elit, et commodo lacus. Quisque nec sodales nunc. Aliquam dignissim purus blandit porta elementum. Curabitur et dui sem. Cras scelerisque, ex quis volutpat finibus, justo erat maximus leo, ac tincidunt ipsum lorem ac elit. Quisque ut libero in nisl lacinia pulvinar.
-                            <br><br>
-                            Morbi id enim volutpat, efficitur odio et, malesuada dui. Nunc congue ultricies turpis, dictum malesuada tellus auctor ac. Maecenas egestas laoreet suscipit. Morbi id eros sed risus lacinia interdum ut a neque. Nulla vitae placerat elit, eget imperdiet ex. Fusce sapien arcu, luctus finibus nisi in, euismod efficitur nunc. Curabitur sit amet urna posuere, tristique mauris eu, feugiat justo. Nunc ac diam quis lorem feugiat laoreet a ut lacus. Donec molestie, enim vel congue molestie, augue magna ultricies turpis, vel ultrices lorem turpis eget neque.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div id="last-entries">
-                    <div class="paragraph">
-                        <header>
-                            <h2 class="article-header">Ostatnie wpisy</h2>
-                        </header>
-                    </div>
-                    <div class="entries-box">
-                        @foreach (var entry in Model.Entries)
-                        {
-                            <div class="entry">
-                                <a href="entry.htm">
-                                    <div class="img-container">
-                                        <img src="@entry.ImageUrl" alt="entry-main-img"/>
-                                    </div>
-                                    <div>
-                                        <h3>@entry.Title</h3>
-                                        <p>
-                                            @entry.Description
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div id="contact">
-                    <div class="paragraph">
-                        <header>
-                            <h2 class="article-header">Kontakt</h2>
-                        </header>
-                        <p>
-                            Mauris eu blandit eros. Cras tellus urna, efficitur ac ipsum id, elementum eleifend elit. Curabitur a lacinia neque. Nam fermentum sapien sit amet velit pretium, at aliquet quam vehicula. In varius odio sit amet volutpat rutrum. Praesent fermentum odio vel quam ultrices pulvinar. Fusce ultrices purus eu leo posuere, eget tempor est dapibus. Donec id efficitur eros, et dignissim turpis. Curabitur eu lectus urna. Pellentesque ac lorem diam.
-                        </p>
-                        <form action="contact.htm">
-                            <button id="msg-button">Napisz wiadomość</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </article>
-    </main>
-
-    <footer>
-        <div class="socials">
-            <div class="socialdivs">
-                <a href="https:\\www.facebook.com" target="blank">
-                    <div id="fb-bt" class="social-button">
-                        <i class="icon-facebook-official"></i>
-                    </div>
-                </a>
-                <a href="https:\\www.instagram.com" target="blank">
-                    <div id="insta-bt" class="social-button">
-                        <i class="icon-instagram"></i>
-                    </div>
-                </a>
-                <a href="https:\\www.youtube.com" target="blank">
-                    <div id="yt-bt" class="social-button">
-                        <i class="icon-youtube-play"></i>
-                    </div>
-                </a>
-                <a href="https:\\www.twitter.com" target="blank">
-                    <div id="tt-bt" class="social-button">
-                        <i class="icon-twitter"></i>
-                    </div>
-                </a>
-                <div style="clear:both"></div>
             </div>
-        </div>
-        <h>ParaDiceDev &copy; All Rights Reserved 201</h>
-    </footer>
+        </section>
 
-    @Styles.Render("~/Content/Custom/index")
-    @Styles.Render("~/Content/Fontello")
+        <section>
+            <div id="last-entries">
+                <div class="paragraph">
+                    <header>
+                        <h2 class="article-header">Ostatnie wpisy</h2>
+                    </header>
+                </div>
+                <div class="entries-box">
+                    @foreach (var entry in Model.Entries)
+                    {
+                        <div class="entry">
+                            <a href="/Entries/Entry/@entry.Id">
+                                <div class="img-container">
+                                    <img src="@entry.ImageUrl" alt="entry-main-img" />
+                                </div>
+                                <div>
+                                    <h3>@entry.Title</h3>
+                                    <p>
+                                        @entry.Description
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
 
-    @section Scripts
-    {
-        @Scripts.Render("~/bundles/custom")
-    }
-</body>
-</html>
+        <section>
+            <div id="contact">
+                <div class="paragraph">
+                    <header>
+                        <h2 class="article-header">Kontakt</h2>
+                    </header>
+                    <p>
+                        Mauris eu blandit eros. Cras tellus urna, efficitur ac ipsum id, elementum eleifend elit. Curabitur a lacinia neque. Nam fermentum sapien sit amet velit pretium, at aliquet quam vehicula. In varius odio sit amet volutpat rutrum. Praesent fermentum odio vel quam ultrices pulvinar. Fusce ultrices purus eu leo posuere, eget tempor est dapibus. Donec id efficitur eros, et dignissim turpis. Curabitur eu lectus urna. Pellentesque ac lorem diam.
+                    </p>
+                    <form action="contact.htm">
+                        <button id="msg-button">Napisz wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
+
+@Styles.Render("~/Content/Custom/index")
