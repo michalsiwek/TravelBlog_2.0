@@ -155,8 +155,12 @@
     </Compile>
     <Compile Include="Infrastructure\RequestService.cs" />
     <Compile Include="Models\Entry.cs" />
+    <Compile Include="Models\Gallery.cs" />
+    <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\Viewmodels\EntriesViewModel.cs" />
     <Compile Include="Models\Viewmodels\EntryViewModel.cs" />
+    <Compile Include="Models\Viewmodels\GalleriesViewModel.cs" />
+    <Compile Include="Models\Viewmodels\GalleryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\RequestDataRepository.cs" />
   </ItemGroup>
@@ -221,8 +225,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Entries\Index.cshtml" />
     <Content Include="Views\Entries\Filter.cshtml" />
