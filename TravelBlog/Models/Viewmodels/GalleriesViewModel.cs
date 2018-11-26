@@ -7,6 +7,6 @@ namespace TravelBlog.Models.Viewmodels
 {
     public class GalleriesViewModel
     {
-        public IEnumerable<Gallery> Galleries { get; set; }
+        public List<Gallery> Galleries { get; set; }
     }
 }

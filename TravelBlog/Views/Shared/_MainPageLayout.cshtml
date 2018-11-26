@@ -25,9 +25,7 @@
         <div class="home-bcg-box">
             <div class="bcg-box-text-placeholder">
                 <div class="bcg-box-text">
-                    <h1 id="index-logo">
-                        <a href="#">Travel Blog</a>
-                    </h1>
+                    <h1>Travel Blog</h1>
                 </div>
             </div>
         </div>
@@ -40,10 +38,10 @@
                     @Html.ActionLink("Wpisy", "Index", "Entries")
                 </li>
                 <li>
-                    @Html.ActionLink("Galeria", "Filter", "Entries", new { categoryName = "default" }, null)
+                    @Html.ActionLink("Galeria", "Index", "Galleries")
                 </li>
                 <li>
-                    <a href="guides.htm">Poradniki</a>
+                    @Html.ActionLink("Poradniki", "Filter", "Entries", new { categoryName = "default" }, null)
                 </li>
                 <li>
                     <a id="nav-contact" href="#">Kontakt</a>

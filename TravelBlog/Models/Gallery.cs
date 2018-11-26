@@ -22,5 +22,6 @@ namespace TravelBlog.Models
         public DateTime CreateDate { get; set; }
 
         public DateTime? LastModification { get; set; }
+
     }
 }

@@ -27,7 +27,7 @@ namespace TravelBlog.Repository
 
         public RequestDataRepository()
         {
-            _serverAddress = "http://localhost:49743/api";
+            _serverAddress = ConnectionFactory.GetServerAddress() + "/api";
             _requestService = new RequestService();
         } 
 

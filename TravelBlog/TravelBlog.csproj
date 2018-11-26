@@ -149,10 +149,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EntriesController.cs" />
+    <Compile Include="Controllers\GalleriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ConnectionFactory.cs" />
+    <Compile Include="Infrastructure\GalleriesService.cs" />
     <Compile Include="Infrastructure\RequestService.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Gallery.cs" />
@@ -231,6 +234,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Entries\Entry.cshtml" />
     <Content Include="Views\Shared\_MainPageLayout.cshtml" />
+    <Content Include="Views\Galleries\Index.cshtml" />
+    <Content Include="Views\Galleries\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
