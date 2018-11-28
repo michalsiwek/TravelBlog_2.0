@@ -46,10 +46,10 @@
         <div class="aside-content">
             <nav>
                 <h2>Kontynenty</h2>
-                <div class="aside-continent"><a href="spec-entries.htm">Europa</a></div>
-                <div class="aside-continent"><a href="spec-entries.htm">Ameryka Płd.</a></div>
-                <div class="aside-continent"><a href="spec-entries.htm">Ameryka Płn.</a></div>
-                <div class="aside-continent"><a href="spec-entries.htm">Azja i Oceania</a></div>
+                <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new { categoryName = "azja-i-oceania" }, null)</div>
             </nav>
             <div class="aside-ad-box">
                 <img src="/Images/ad_placeholder.jpg">

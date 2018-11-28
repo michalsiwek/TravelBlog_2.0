@@ -83,6 +83,11 @@ namespace TravelBlog
                 "~/Content/Custom/general.css",
                 "~/Content/Custom/gallery.css"
             ));
+
+            bundles.Add(new StyleBundle("~/Content/Custom/nocontent").Include(
+                "~/Content/Custom/general.css",
+                "~/Content/Custom/nocontent.css"
+            ));
         }
     }
 }

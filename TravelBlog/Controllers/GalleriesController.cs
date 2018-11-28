@@ -29,7 +29,7 @@ namespace TravelBlog.Controllers
             };
 
             if (viewModel.Galleries.Count == 0)
-                RedirectToAction("Index", "Home");
+                RedirectToAction("NoContent", "Home");
 
             foreach (var gallery in viewModel.Galleries)
                 _galleriesService.GeneratePictureUrls(gallery);
@@ -43,6 +43,9 @@ namespace TravelBlog.Controllers
             {
                 Gallery = _requestDataRepository.GetElement<Gallery>(id)
             };
+
+            if (viewModel.Gallery == null)
+                RedirectToAction("NoContent", "Home");
 
             _galleriesService.GeneratePictureUrls(viewModel.Gallery);
 

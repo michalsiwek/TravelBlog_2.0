@@ -30,5 +30,10 @@ namespace TravelBlog.Controllers
             return View(viewModel);
         }
 
+        public ActionResult NoContent()
+        {
+            return View();
+        }
+
     }
 }

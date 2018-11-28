@@ -154,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Infrastructure\ConnectionFactory.cs" />
     <Compile Include="Infrastructure\GalleriesService.cs" />
     <Compile Include="Infrastructure\RequestService.cs" />
@@ -180,6 +181,7 @@
     <Content Include="Content\Custom\gallery.css" />
     <Content Include="Content\Custom\general.css" />
     <Content Include="Content\Custom\index.css" />
+    <Content Include="Content\Custom\nocontent.css" />
     <Content Include="Content\Custom\spec-entries.css" />
     <Content Include="Content\Fontello\animation.css" />
     <Content Include="Content\Fontello\fontello-codes.css" />
@@ -236,6 +238,7 @@
     <Content Include="Views\Shared\_MainPageLayout.cshtml" />
     <Content Include="Views\Galleries\Index.cshtml" />
     <Content Include="Views\Galleries\Gallery.cshtml" />
+    <Content Include="Views\Home\NoContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

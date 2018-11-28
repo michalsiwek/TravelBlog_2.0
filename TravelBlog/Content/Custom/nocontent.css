@@ -1,0 +1,46 @@
+﻿.bcg-box, .shadow {
+    position: relative;
+    width: 100vw;
+    left: calc(-50vw + 50%);
+}
+
+.shadow {
+    background: rgba(0, 0, 0, .5);
+    height: 500px;
+}
+
+.message-box {
+    position: relative;
+    width: 60vw;
+    left: calc(20%);
+}
+
+.bcg-box {
+    background-image: url('/Images/404.jpeg');
+    margin: 20px 0 20px 0;
+}
+.message-box h2
+{
+    text-align: center;
+    line-height: 500px;
+    font-size: 50px;
+    letter-spacing: 10px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-weight: normal;
+}
+
+/* Chrome 29+ */
+@supports (-webkit-appearance:none) and (not (overflow:-webkit-marquee)) and (not (-ms-ime-align:auto)) and (not (-moz-appearance:none)) {
+    .bcg-box {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
+/* Firefox */
+@-moz-document url-prefix() {
+    .bcg-box {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
