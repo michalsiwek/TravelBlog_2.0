@@ -1,0 +1,61 @@
+﻿@using TravelBlog.Models.Viewmodels
+@model ContactViewModel
+
+<div id="container">
+    <aside>
+        <div class="aside-content">
+            <div class="aside-ad-box">
+                <img src="/Images/ad_placeholder.jpg">
+            </div>
+        </div>
+    </aside>
+    <main>
+        <article>
+            <div id="content">
+                <header>
+                    <h1>Formularz kontaktowy</h1>
+                </header>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero ligula, porta quis quam at, convallis egestas lacus. Duis convallis efficitur volutpat. Nam pulvinar ullamcorper bibendum. Aenean sit amet justo in tellus porta pellentesque. Praesent tincidunt ornare nisi ac convallis. Etiam dictum molestie elementum. Etiam ullamcorper lectus et erat molestie, gravida consequat neque fringilla.
+                </p>
+                @using (Html.BeginForm("SendEmail", "Contact", FormMethod.Post, new { id = "contact-form" }))
+                {
+                    <h4>Temat</h4>
+                    @Html.TextBoxFor(m => m.Contact.Title, new { id = "title", placeholder = "Temat" })
+                    <h4>Wiadomość</h4>
+                    @Html.TextAreaFor( m => m.Contact.Message, new { id = "message", placeholder = "Treść" } )
+                    <h4>Twój email</h4>
+                    @Html.TextBoxFor(m => m.Contact.EmailAddress, new { id = "email", type = "text", placeholder = "E-mail" } )
+                    <button id="send-button" type="submit">Wyślij</button>
+                }
+            </div>
+
+        </article>
+
+    </main>
+
+    <aside>
+        <div class="aside-content">
+            <nav>
+                <h2>Kontynenty</h2>
+                <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new { categoryName = "azja-i-oceania" }, null)</div>
+            </nav>
+            <div class="aside-ad-box">
+                <img src="/Images/ad_placeholder.jpg">
+            </div>
+        </div>
+    </aside>
+
+</div>
+
+@Styles.Render("~/Content/Custom/contact")
+
+@section Scripts
+    {
+    @Scripts.Render("~/bundles/custom")
+}
+
+
