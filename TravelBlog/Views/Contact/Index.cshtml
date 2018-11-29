@@ -21,11 +21,14 @@
                 @using (Html.BeginForm("SendEmail", "Contact", FormMethod.Post, new { id = "contact-form" }))
                 {
                     <h4>Temat</h4>
-                    @Html.TextBoxFor(m => m.Contact.Title, new { id = "title", placeholder = "Temat" })
+                    @Html.TextBoxFor(m => m.Contact.Topic, new { id = "title", placeholder = "Temat" })
+                    @Html.ValidationMessageFor(m => m.Contact.Topic, "", new { @class = "alert-text" })
                     <h4>Wiadomość</h4>
-                    @Html.TextAreaFor( m => m.Contact.Message, new { id = "message", placeholder = "Treść" } )
+                    @Html.TextAreaFor(m => m.Contact.Message, new { id = "message", placeholder = "Treść" })
+                    @Html.ValidationMessageFor(m => m.Contact.Message, "", new { @class = "alert-text" })
                     <h4>Twój email</h4>
-                    @Html.TextBoxFor(m => m.Contact.EmailAddress, new { id = "email", type = "text", placeholder = "E-mail" } )
+                    @Html.TextBoxFor(m => m.Contact.EmailAddress, new { id = "email", type = "text", placeholder = "E-mail" })
+                    @Html.ValidationMessageFor(m => m.Contact.EmailAddress, "", new { @class = "alert-text" })
                     <button id="send-button" type="submit">Wyślij</button>
                 }
             </div>

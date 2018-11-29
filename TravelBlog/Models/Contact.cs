@@ -10,13 +10,14 @@ namespace TravelBlog.Models
     {
         [Required]
         [StringLength(100)]
-        public string Title { get; set; }
+        public string Topic { get; set; }
 
         [Required]
         public string Message { get; set; }
 
         [Required]
         [EmailAddress]
+        [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
 
         private void NormalizeMessage()

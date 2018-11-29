@@ -35,7 +35,7 @@ namespace TravelBlog.Infrastructure
 
             mail.From = new MailAddress(_emailAddress, model.Contact.EmailAddress);
             mail.To.Add(new MailAddress(_emailAddress));
-            mail.Subject = model.Contact.Title;
+            mail.Subject = model.Contact.Topic;
             mail.IsBodyHtml = true;
             mail.Body = string.Format(_emailTemplate, model.Contact.EmailAddress, model.Contact.GetMessage());
 
