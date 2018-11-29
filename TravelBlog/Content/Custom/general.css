@@ -20,13 +20,25 @@ button
 	outline: none;
     border-radius: 5px;
 }
-#logo
-{
+#logo {
     text-align: center;
     color: #cccccc;
-    font-size: 48px;
-    letter-spacing: 10px;
+    font-size: 55px;
+    letter-spacing: 20px;
     text-transform: uppercase;
+    line-height: 150px;
+    margin: 0;
+}
+#logo, #logo h1 {
+    background-image: url('/Images/home-bcg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#logo h1 {
+    background: rgba(0, 0, 0, 0);
+}
+#logo div {
+    background: rgba(0, 0, 0, .6);
 }
 #topnav
 {

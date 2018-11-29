@@ -18,7 +18,7 @@ $('.img-container').click(function(event) {
     });
 // slider
 function showPic(index) {
-    if(index > 0 && fotoIndex < $('.img-container').size()) {
+    if (index > 0 && fotoIndex < $('.img-container').length) {
         fotoIndex += index;
     } else if (index < 0 && fotoIndex > 1) {
         fotoIndex += index;
@@ -27,20 +27,22 @@ function showPic(index) {
     $('#foto').attr('src', src);
 }
 
-$('#foto-prev').click(function () {
+$('#foto-prev').unbind('click').click(function () {
     showPic(-1);
 });
-$('#foto-next').click(function () {
+$('#foto-next').unbind('click').click(function () {
     showPic(1);
 });
 
-$(document).keydown(function(e) {
+$(document).unbind('keydown').keydown(function(e) {
     switch(e.which) {
         case 37: // arrow left
             showPic(-1);
+            console.log('click');
             break;
         case 39: // arrow right
             showPic(1);
+            console.log('click');
             break;
         default: return;
     }

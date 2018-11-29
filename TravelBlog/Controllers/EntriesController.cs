@@ -22,6 +22,9 @@ namespace TravelBlog.Controllers
                 Entries = _requestDataRepository.GetEntriesByCreateDateDesc()
             };
 
+            if (viewModel.Entries.Count() == 0)
+                return RedirectToAction("NoContent", "Home");
+
             return View(viewModel);
         }
 
@@ -32,15 +35,23 @@ namespace TravelBlog.Controllers
                 Entry = _requestDataRepository.GetElement<Entry>(id)
             };
 
+            if (viewModel.Entry == null)
+                return RedirectToAction("NoContent", "Home");
+
             return View(viewModel);
         }
 
         public ActionResult Filter(string categoryName)
         {
+            var output = _requestDataRepository.GetEntriesByCreateDateDesc().Skip(1).Take(10);
+
             var viewModel = new EntriesViewModel
             {
                 Entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(categoryName)
             };
+
+            if (viewModel.Entries.Count() == 0)
+                return RedirectToAction("NoContent", "Home");
 
             return View(viewModel);
         }

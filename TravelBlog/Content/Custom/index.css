@@ -164,15 +164,8 @@ h3
 }
 
 /* NEW */
-
-#index-logo {
-    text-align: center;
-    color: #cccccc;
-    font-size: 72px;
-    letter-spacing: 20px;
-    text-transform: uppercase;
-    margin-block-start: 0;
-    margin-block-end: 0;
+.home-bcg-box {
+    height: 400px;
 }
 
 .home-bcg-box, .bcg-box-text-placeholder {
@@ -181,8 +174,8 @@ h3
     left: calc(-50vw + 50%);
 }
 
-.home-bcg-box {
-    height: 400px;
+.bcg-box-text-placeholder {
+    background: rgba(0, 0, 0, .6);
 }
 
 .bcg-box-text {
@@ -191,30 +184,61 @@ h3
     left: calc(20%);
 }
 
-.home-bcg-box {
+.home-bcg-box, .bcg-box-text h1 {
     background-image: url('/Images/home-bcg.jpg');
     line-height: 400px;
 }
 
+.bcg-box-text h1 {
+    text-align: center;
+    color: #cccccc;
+    font-size: 100px;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0);
+}
+
+
 /* Chrome 29+ */
 @supports (-webkit-appearance:none) and (not (overflow:-webkit-marquee)) and (not (-ms-ime-align:auto)) and (not (-moz-appearance:none)) {
-    .home-bcg-box {
+    .home-bcg-box, .bcg-box-text h1 {
         background-image: url('/Images/home-bcg.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
+    }
+
+    .bcg-box-text h1 {
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-weight: bold;
     }
 }
 /* Firefox */
 @-moz-document url-prefix() {
-    .home-bcg-box {
+    .home-bcg-box, .bcg-box-text h1 {
         background-image: url('/Images/home-bcg.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+
+    .bcg-box-text h1{
+        color: #000;
+        font-weight: bold;
+        background: rgba(255,255,255,0);
+    }
 }
 /* Edge */
 @supports (-ms-ime-align:auto) {
-    .home-bcg-box {
+    .home-bcg-box, .bcg-box-text h1 {
         background-image: url('/Images/home-bcg.jpg');
+    }
+
+    .bcg-box-text h1 {
+        color: #000;
+        font-weight: bold;
+        background: rgba(255,255,255,0);
     }
 }

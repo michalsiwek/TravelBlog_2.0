@@ -1,0 +1,27 @@
+﻿@using TravelBlog.Models.Viewmodels
+@model GalleriesViewModel
+
+<div id="title-bar">Galerie</div>
+<div id="title-bar-sticky">Galerie</div>
+<main>
+    <div id="gallery-container">
+        @foreach (var gallery in Model.Galleries)
+        {
+            <figure class="gallery-item">
+                <a href="/Galleries/Gallery/@gallery.Id">
+                    <div class="img-container">
+                        <img src="@Url.Content(gallery.Pictures.First().Url)" alt="gallery-main-img"/>
+                    </div>
+                    <figcaption class="caption">@gallery.Title</figcaption>
+                </a>
+            </figure>
+        }
+    </div>
+</main>
+
+@Styles.Render("~/Content/Custom/galleries")
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/custom")
+}

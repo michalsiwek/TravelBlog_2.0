@@ -23,7 +23,9 @@
 
     <header>
         <h1 id="logo">
-            @Html.ActionLink("Travel Blog", "Index", "Home")
+            <div>
+                @Html.ActionLink("Travel Blog", "Index", "Home")
+            </div>
         </h1>
         <nav id="topnav">
             <ul class="menu">
@@ -34,10 +36,10 @@
                     @Html.ActionLink("Wpisy", "Index", "Entries")
                 </li>
                 <li>
-                    @Html.ActionLink("Galeria", "Filter", "Entries", new { categoryName = "default" }, null)
+                    @Html.ActionLink("Galeria", "Index", "Galleries")
                 </li>
                 <li>
-                    <a href="guides.htm">Poradniki</a>
+                    @Html.ActionLink("Poradniki", "Filter", "Entries", new { categoryName = "default" }, null)
                 </li>
                 <li>
                     <a href="contact.htm">Kontakt</a>

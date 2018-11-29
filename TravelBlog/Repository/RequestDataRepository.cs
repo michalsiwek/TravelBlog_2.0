@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 using Newtonsoft.Json;
+using TravelBlog.Helpers;
 using TravelBlog.Infrastructure;
 using TravelBlog.Models;
 
@@ -27,7 +28,7 @@ namespace TravelBlog.Repository
 
         public RequestDataRepository()
         {
-            _serverAddress = "http://localhost:49743/api";
+            _serverAddress = ConnectionFactory.GetServerAddress() + "/api";
             _requestService = new RequestService();
         } 
 
@@ -101,7 +102,8 @@ namespace TravelBlog.Repository
 
                 string jsonStr = Encoding.UTF8.GetString(requestsData);
                 var output = JsonConvert.DeserializeObject<List<Entry>>(jsonStr)
-                    .Where(p => p.CategoryName.ToLower().Equals(categoryName.ToLower()))
+                    .Where(p => p.CategoryName.ToLower().UnPolish().Replace(" ", "-").Replace(".", "")
+                        .Equals(categoryName.ToLower()))
                     .OrderByDescending(p => p.CreateDate)
                     .ToList();
 
