@@ -261,3 +261,8 @@ footer > h
 	background-color: #3095d3;
     color: #eeeeee;
 }
+
+.alert-text {
+    color: #d94348;
+    font-size: 12px;
+}
