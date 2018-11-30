@@ -15,11 +15,23 @@ namespace TravelBlog.Controllers
 
         public EntriesController() => _requestDataRepository = new RequestDataRepository();
 
-        public ActionResult Index()
+        public ActionResult Index(int page)
         {
+            var entriesPerPage = 1;
+
+            var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
+            var pages = (int)Math.Ceiling((double)entries.Count / entriesPerPage);
+
+            if (page > pages)
+                return RedirectToAction("Index", RedirectToAction("Index", "Entries", new {page = pages}));
+
             var viewModel = new EntriesViewModel
             {
+                Pages = pages,
+                Page = page,
                 Entries = _requestDataRepository.GetEntriesByCreateDateDesc()
+                    .Skip((page - 1) * entriesPerPage)
+                    .Take(entriesPerPage)
             };
 
             if (viewModel.Entries.Count() == 0)

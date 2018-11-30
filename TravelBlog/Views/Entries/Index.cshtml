@@ -31,6 +31,32 @@
                 </div>
             </article>
         }
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                @if (Model.Pages > 5)
+                {
+                    <a href="#" class="active-page">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                }
+                else
+                {
+                    for (int i = 1; i <= Model.Pages; i++)
+                    {
+                         if (i == Model.Page)
+                         {
+                            <a href="#" class="active-page">@i</a>
+                         }
+                         else
+                         {
+                            <a href="#">@i</a>
+                         }
+                    }
+                }
+                <a href="#">&raquo;</a>
+            </div>
         <div class="pagination">
             <a href="#">&laquo;</a>
             <a href="#" class="active-page">1</a>

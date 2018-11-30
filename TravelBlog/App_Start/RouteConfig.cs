@@ -32,6 +32,12 @@ namespace TravelBlog
             );
 
             routes.MapRoute(
+                name: "Entries",
+                url: "{controller}/{action}/{page}",
+                defaults: new { controller = "Entries", action = "Index", page = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Gallery",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Galleries", action = "Gallery", id = UrlParameter.Optional }
