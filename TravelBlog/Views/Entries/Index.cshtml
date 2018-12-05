@@ -31,32 +31,21 @@
                 </div>
             </article>
         }
-            <div class="pagination">
-                <a href="#">&laquo;</a>
-                @if (Model.Pages > 5)
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            @foreach (var page in Model.Pages)
+            {
+                if (@page.Active)
                 {
-                    <a href="/Entries?page=1" class="active-page">1</a>
-                    <a href="/Entries?page=2">2</a>
-                    <a href="/Entries?page=3">3</a>
-                    <a href="/Entries?page=4">4</a>
-                    <a href="/Entries?page=5">5</a>
+                    <a href="#" class="active-page">@page.Index</a>
                 }
                 else
                 {
-                    for (int i = 1; i <= Model.Pages; i++)
-                    {
-                         if (i == Model.Page)
-                         {
-                            <a href="#" class="active-page">@i</a>
-                         }
-                         else
-                         {
-                            <a href="#">@i</a>
-                         }
-                    }
+                    <a href="/Entries?page=@page.Index">@page.Index</a>
                 }
-                <a href="#">&raquo;</a>
-            </div>
+            }
+            <a href="#">&raquo;</a>
+        </div>
     </main>
 
     <aside>
