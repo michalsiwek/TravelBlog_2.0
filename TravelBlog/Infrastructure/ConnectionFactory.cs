@@ -9,7 +9,7 @@ namespace TravelBlog.Infrastructure
     {
         public static string GetServerAddress()
         {
-            return @"http://localhost:49743";
+            return @"http://blogmanager.azurewebsites.net";
         }
     }
 }

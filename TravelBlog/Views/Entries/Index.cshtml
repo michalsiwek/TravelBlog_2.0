@@ -35,11 +35,11 @@
                 <a href="#">&laquo;</a>
                 @if (Model.Pages > 5)
                 {
-                    <a href="#" class="active-page">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
+                    <a href="/Entries?page=1" class="active-page">1</a>
+                    <a href="/Entries?page=2">2</a>
+                    <a href="/Entries?page=3">3</a>
+                    <a href="/Entries?page=4">4</a>
+                    <a href="/Entries?page=5">5</a>
                 }
                 else
                 {
@@ -57,15 +57,6 @@
                 }
                 <a href="#">&raquo;</a>
             </div>
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#" class="active-page">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">&raquo;</a>
-        </div>
     </main>
 
     <aside>

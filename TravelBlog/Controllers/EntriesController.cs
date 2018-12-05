@@ -17,7 +17,7 @@ namespace TravelBlog.Controllers
 
         public ActionResult Index(int page)
         {
-            var entriesPerPage = 1;
+            var entriesPerPage = 3;
 
             var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
             var pages = (int)Math.Ceiling((double)entries.Count / entriesPerPage);
