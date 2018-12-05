@@ -22,7 +22,7 @@
                     <div class="entry-main-img">
                         <img src="@entry.ImageUrl" alt="entry-main-img" />
                     </div>
-                    @foreach (var paragraph in entry.Content)
+                    @foreach (var paragraph in entry.Content.Take(3))
                     {
                         <p>@paragraph</p>
                     }

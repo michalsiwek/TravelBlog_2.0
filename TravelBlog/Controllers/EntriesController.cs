@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TravelBlog.Infrastructure;
 using TravelBlog.Models;
 using TravelBlog.Models.Viewmodels;
 using TravelBlog.Repository;
@@ -12,39 +13,33 @@ namespace TravelBlog.Controllers
     public class EntriesController : Controller
     {
         private readonly IRequestDataRepository _requestDataRepository;
+        private readonly IPaginationHandler _paginationHandler;
 
-        public EntriesController() => _requestDataRepository = new RequestDataRepository();
+        public EntriesController()
+        {
+            _requestDataRepository = new RequestDataRepository();
+            _paginationHandler = new PaginationHandler();
+        }
 
         public ActionResult Index(int page)
         {
             var entriesPerPage = 3;
 
             var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
+
+            if (entries == null)
+                return RedirectToAction("NoContent", "Home");
+
             var numbOfPages = (int)Math.Ceiling((double)entries.Count / entriesPerPage);
 
             if (page > numbOfPages)
-                return RedirectToAction("Index", RedirectToAction("Index", "Entries", new { page = numbOfPages }));
-
-            var pages = new List<Page>();
-
-            for (int i = 1; i <= numbOfPages; i++)
-            {
-                var temp = new Page
-                {
-                    Index = i
-                };
-
-                if (i == page)
-                    temp.Active = true;
-
-                pages.Add(temp);
-            }
+                return RedirectToAction("Index", "Entries", new { page = numbOfPages });
 
             var viewModel = new EntriesViewModel
             {
-                Pages = pages,
+                Pages = _paginationHandler.GetPages(page, numbOfPages),
                 ActivePage = page,
-                Entries = _requestDataRepository.GetEntriesByCreateDateDesc()
+                Entries = entries
                     .Skip((page - 1) * entriesPerPage)
                     .Take(entriesPerPage)
             };
