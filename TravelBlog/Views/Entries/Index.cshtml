@@ -32,7 +32,14 @@
             </article>
         }
         <div class="pagination">
-            <a href="#">&laquo;</a>
+            @if (Model.ActivePage > 1)
+            {
+                <a href="/Entries?page=@(Model.ActivePage - 1)">&laquo;</a>
+            }
+            else
+            {
+                <a href="#">&laquo;</a>
+            }
             @foreach (var page in Model.Pages)
             {
                 if (@page.Active)
@@ -44,7 +51,14 @@
                     <a href="/Entries?page=@page.Index">@page.Index</a>
                 }
             }
-            <a href="#">&raquo;</a>
+            @if (Model.ActivePage < Model.AllPagesCount)
+            {
+                <a href="/Entries?page=@(Model.ActivePage + 1)">&raquo;</a>
+            }
+            else
+            {
+                <a href="#">&raquo;</a>
+            }
         </div>
     </main>
 

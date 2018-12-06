@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TravelBlog.Helpers;
 
 namespace TravelBlog.Models
 {
@@ -23,5 +24,10 @@ namespace TravelBlog.Models
 
         public string Author { get; set; }
         public string LastEditor { get; set; }
+
+        public string GetCategoryForUrl()
+        {
+            return CategoryName.ToLower().UnPolish().Replace(" ", "-");
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace TravelBlog.Controllers
     {
         private readonly IRequestDataRepository _requestDataRepository;
         private readonly IPaginationHandler _paginationHandler;
+        private readonly int _entriesPerPage = 3;
 
         public EntriesController()
         {
@@ -21,27 +22,28 @@ namespace TravelBlog.Controllers
             _paginationHandler = new PaginationHandler();
         }
 
-        public ActionResult Index(int page)
+        public ActionResult Index(int? page)
         {
-            var entriesPerPage = 3;
-
             var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
 
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
 
-            var numbOfPages = (int)Math.Ceiling((double)entries.Count / entriesPerPage);
+            int pageRequest = (page == null || page < 1) ? 1 : (int)page;
 
-            if (page > numbOfPages)
+            var numbOfPages = (int)Math.Ceiling((double)entries.Count / _entriesPerPage);
+
+            if (pageRequest > numbOfPages)
                 return RedirectToAction("Index", "Entries", new { page = numbOfPages });
 
             var viewModel = new EntriesViewModel
             {
-                Pages = _paginationHandler.GetPages(page, numbOfPages),
-                ActivePage = page,
+                Pages = _paginationHandler.GetPages(pageRequest, numbOfPages),
+                ActivePage = pageRequest,
                 Entries = entries
-                    .Skip((page - 1) * entriesPerPage)
-                    .Take(entriesPerPage)
+                    .Skip((pageRequest - 1) * _entriesPerPage)
+                    .Take(_entriesPerPage),
+                AllPagesCount = numbOfPages
             };
 
             if (viewModel.Entries.Count() == 0)
@@ -63,13 +65,28 @@ namespace TravelBlog.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Filter(string categoryName)
+        public ActionResult Filter(string categoryName, int? page)
         {
-            var output = _requestDataRepository.GetEntriesByCreateDateDesc().Skip(1).Take(10);
+            var entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(categoryName);
+
+            if (entries == null)
+                return RedirectToAction("NoContent", "Home");
+
+            int pageRequest = (page == null || page < 1) ? 1 : (int)page;
+
+            var numbOfPages = (int)Math.Ceiling((double)entries.Count / _entriesPerPage);
+
+            if (page > numbOfPages)
+                return RedirectToAction("Filter", "Entries", new { categoryName = categoryName, page = numbOfPages });
 
             var viewModel = new EntriesViewModel
             {
-                Entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(categoryName)
+                Pages = _paginationHandler.GetPages(pageRequest, numbOfPages),
+                ActivePage = pageRequest,
+                Entries = entries
+                    .Skip((pageRequest - 1) * _entriesPerPage)
+                    .Take(_entriesPerPage),
+                AllPagesCount = numbOfPages
             };
 
             if (viewModel.Entries.Count() == 0)

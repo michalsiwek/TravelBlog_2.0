@@ -10,5 +10,6 @@ namespace TravelBlog.Models.Viewmodels
         public int ActivePage { get; set; }
         public IEnumerable<Page> Pages { get; set; }
         public IEnumerable<Entry> Entries { get; set; }
+        public int AllPagesCount { get; set; }
     }
 }

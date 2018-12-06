@@ -33,13 +33,13 @@
                     @Html.ActionLink("Strona Główna", "Index", "Home")
                 </li>
                 <li>
-                    @Html.ActionLink("Wpisy", "Index", "Entries", new { page = 1 }, null)
+                    @Html.ActionLink("Wpisy", "Index", "Entries")
                 </li>
                 <li>
                     @Html.ActionLink("Galeria", "Index", "Galleries")
                 </li>
                 <li>
-                    @Html.ActionLink("Poradniki", "Filter", "Entries", new { categoryName = "default" }, null)
+                    @Html.ActionLink("Poradniki", "Filter", "Entries", new { categoryName = "poradniki" }, null)
                 </li>
                 <li>
                     @Html.ActionLink("Kontakt", "Index", "Contact")
