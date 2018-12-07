@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TravelBlog.Infrastructure;
 using TravelBlog.Models;
 using TravelBlog.Models.Viewmodels;
 using TravelBlog.Repository;
@@ -12,15 +13,22 @@ namespace TravelBlog.Controllers
     public class EntriesController : Controller
     {
         private readonly IRequestDataRepository _requestDataRepository;
+        private readonly IEntriesViewModelProvider _viewModelProvider;
 
-        public EntriesController() => _requestDataRepository = new RequestDataRepository();
-
-        public ActionResult Index()
+        public EntriesController()
         {
-            var viewModel = new EntriesViewModel
-            {
-                Entries = _requestDataRepository.GetEntriesByCreateDateDesc()
-            };
+            _requestDataRepository = new RequestDataRepository();
+            _viewModelProvider = new EntriesViewModelProvider(new PaginationHandler());
+        }
+
+        public ActionResult Index(int? page)
+        {
+            var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
+
+            if (entries == null)
+                return RedirectToAction("NoContent", "Home");
+
+            var viewModel = _viewModelProvider.GetViewModel(page, entries);
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");
@@ -41,14 +49,14 @@ namespace TravelBlog.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Filter(string categoryName)
+        public ActionResult Filter(string categoryName, int? page)
         {
-            var output = _requestDataRepository.GetEntriesByCreateDateDesc().Skip(1).Take(10);
+            var entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(categoryName);
 
-            var viewModel = new EntriesViewModel
-            {
-                Entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(categoryName)
-            };
+            if (entries == null)
+                return RedirectToAction("NoContent", "Home");
+
+            var viewModel = _viewModelProvider.GetViewModel(page, entries);
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");

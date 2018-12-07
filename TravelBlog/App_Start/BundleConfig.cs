@@ -14,6 +14,9 @@ namespace TravelBlog
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryscrollto").Include(
+                        "~/Scripts/Custom/jquery.scrollTo.min.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -22,27 +25,29 @@ namespace TravelBlog
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
-                        "~/Scripts/Custom/disqus.js",
-                        "~/Scripts/Custom/fotoPreview.js",
-                        "~/Scripts/Custom/indexScrollToContact.js",
-                        "~/Scripts/Custom/jquery.scrollTo.min.js",
-                        "~/Scripts/Custom/scrollUp.js",
-                        "~/Scripts/Custom/stickyTitleBar.js"));
+            bundles.Add(new ScriptBundle("~/bundles/entry").Include(
+                "~/Scripts/Custom/disqus.js",
+                "~/Scripts/Custom/scrollUp.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/Custom/colors.css",
-                      "~/Content/Custom/contanct.css",
-                      "~/Content/Custom/entries.css",
-                      "~/Content/Custom/entry.css",
-                      "~/Content/Custom/galleries.css",
-                      "~/Content/Custom/gallery.css",
-                      "~/Content/Custom/general.css",
-                      "~/Content/Custom/index.css",
-                      "~/Content/Custom/spec-entries.css"
-                      ));
+            bundles.Add(new ScriptBundle("~/bundles/entries").Include(
+                "~/Scripts/Custom/scrollUp.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/spec-entries").Include(
+                "~/Scripts/Custom/scrollUp.js",
+                "~/Scripts/Custom/stickyTitleBar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/galleries").Include(
+                "~/Scripts/Custom/scrollUp.js",
+                "~/Scripts/Custom/stickyTitleBar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/gallery").Include(
+                "~/Scripts/Custom/fotoPreview.js",
+                "~/Scripts/Custom/scrollUp.js",
+                "~/Scripts/Custom/stickyTitleBar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/index").Include(
+                "~/Scripts/Custom/jquery.scrollTo.min.js",
+                "~/Scripts/Custom/indexScrollToContact.js"));
 
             bundles.Add(new StyleBundle("~/Content/Fontello").Include(
                 "~/Content/Fontello/animation.css",

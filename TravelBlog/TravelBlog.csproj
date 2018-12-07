@@ -157,7 +157,9 @@
     </Compile>
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Infrastructure\ConnectionFactory.cs" />
+    <Compile Include="Infrastructure\EntriesViewModelProvider.cs" />
     <Compile Include="Infrastructure\GalleriesService.cs" />
+    <Compile Include="Infrastructure\PaginationHandler.cs" />
     <Compile Include="Infrastructure\RequestService.cs" />
     <Compile Include="Infrastructure\SendEmailService.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -169,6 +171,7 @@
     <Compile Include="Models\Viewmodels\EntryViewModel.cs" />
     <Compile Include="Models\Viewmodels\GalleriesViewModel.cs" />
     <Compile Include="Models\Viewmodels\GalleryViewModel.cs" />
+    <Compile Include="Models\Viewmodels\Page.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\RequestDataRepository.cs" />
   </ItemGroup>

@@ -76,7 +76,7 @@
                                     <img src="@entry.ImageUrl" alt="entry-main-img" />
                                 </div>
                                 <div>
-                                    <h3>@entry.Title</h3>
+                                    <h3 class="entry-title-font">@entry.Title</h3>
                                     <p>
                                         @entry.Description
                                     </p>
@@ -105,3 +105,7 @@
 </main>
 
 @Styles.Render("~/Content/Custom/index")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jqueryscrollto")
+@Scripts.Render("~/bundles/index")

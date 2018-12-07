@@ -18,13 +18,13 @@
             <article>
                 <div class="entry">
                     <header>
-                        <h1><a class="entry-title" href="entry.htm">@entry.Title</a></h1>
+                        <h1><a class="entry-title entry-title-font" href="/Entries/Entry/@entry.Id">@entry.Title</a></h1>
                     </header>
                     <p class="entry-data">@entry.CreateDate.ToShortDateString() | @entry.CreateDate.ToShortTimeString() | @entry.Author</p>
                     <div class="entry-main-img">
                         <img src="@entry.ImageUrl" alt="entry-main-img" />
                     </div>
-                    @foreach (var paragraph in entry.Content)
+                    @foreach (var paragraph in entry.Content.Take(3))
                     {
                         <p>@paragraph</p>
                     }
@@ -34,13 +34,33 @@
             </article>
         }
         <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#" class="active-page">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">&raquo;</a>
+            @if (Model.ActivePage > 1)
+            {
+                <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@(Model.ActivePage - 1)">&laquo;</a>
+            }
+            else
+            {
+                <a href="#">&laquo;</a>
+            }
+            @foreach (var page in Model.Pages)
+            {
+                if (@page.Active)
+                {
+                    <a href="#" class="active-page">@page.Index</a>
+                }
+                else
+                {
+                    <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@page.Index">@page.Index</a>
+                }
+            }
+            @if (Model.ActivePage < Model.AllPagesCount)
+            {
+                <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@(Model.ActivePage + 1)">&raquo;</a>
+            }
+            else
+            {
+                <a href="#">&raquo;</a>
+            }
         </div>
     </main>
 
@@ -67,5 +87,8 @@
 
 @section Scripts
 {
-    @Scripts.Render("~/bundles/custom")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryscrollto")
+    @Scripts.Render("~/bundles/spec-entries")
 }
