@@ -8,11 +8,17 @@ namespace TravelBlog.Infrastructure
 {
     public interface IPaginationHandler
     {
+        int CalculatePages(int entriesCount, int entriesPerPage);
         List<Page> GetPages(int pageRequest, int numbOfPages);
     }
 
     public class PaginationHandler : IPaginationHandler
     {
+        public int CalculatePages(int entriesCount, int entriesPerPage)
+        {
+            return (int)Math.Ceiling((double)entriesCount / entriesPerPage);
+        }
+
         public List<Page> GetPages(int pageRequest, int numbOfPages)
         {
             var pages = new List<Page>();

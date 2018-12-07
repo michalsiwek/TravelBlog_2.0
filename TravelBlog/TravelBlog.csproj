@@ -157,6 +157,7 @@
     </Compile>
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Infrastructure\ConnectionFactory.cs" />
+    <Compile Include="Infrastructure\EntriesViewModelProvider.cs" />
     <Compile Include="Infrastructure\GalleriesService.cs" />
     <Compile Include="Infrastructure\PaginationHandler.cs" />
     <Compile Include="Infrastructure\RequestService.cs" />

@@ -1,7 +1,7 @@
 body {
     background-color: #151d2b;
     color: #cccccc;
-    font-family: 'Abel', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     margin: 0 auto;
     overflow-x: hidden;
 }
@@ -11,12 +11,15 @@ a
     color: #cccccc;
 }
 button {
-    font-family: 'Abel', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     cursor: pointer;
     border: none;
     letter-spacing: 1px;
     outline: none;
     border-radius: 5px;
+}
+.entry-title-font {
+    font-family: 'Marmelad', sans-serif;
 }
 #logo {
     font-family: 'Righteous', sans-serif;
@@ -28,10 +31,10 @@ button {
     line-height: 150px;
     margin: 0;
 }
-    #logo, #logo h1 {
-        background-image: url('/Images/kale-salad.jpg');
-        background-attachment: fixed;
-    }
+#logo, #logo h1 {
+    background-image: url('/Images/kale-salad.jpg');
+    background-attachment: fixed;
+}
 #logo h1 {
     background: rgba(0, 0, 0, 0);
 }
