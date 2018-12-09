@@ -45,6 +45,18 @@
     top: 0;
     right: 0;
 }
+#foto-desc {
+    position: fixed;
+    bottom: 15px;
+    padding: 20px 150px 20px 150px;
+    font-size: 18px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 100px;
+    text-transform: none;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+}
 #wrapper p
 {
     text-align: center;
