@@ -48,9 +48,25 @@ namespace TravelBlog.Infrastructure
                 pages[2].Active = true;
                 return pages;
             }
-            else
+            else if (numbOfPages > 5)
             {
                 for (int i = numbOfPages - 4; i <= numbOfPages; i++)
+                {
+                    var temp = new Page
+                    {
+                        Index = i
+                    };
+
+                    if (i == pageRequest)
+                        temp.Active = true;
+
+                    pages.Add(temp);
+                }
+                return pages;
+            }
+            else
+            {
+                for (int i = 1; i <= numbOfPages; i++)
                 {
                     var temp = new Page
                     {
