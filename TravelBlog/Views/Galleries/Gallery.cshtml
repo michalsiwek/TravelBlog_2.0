@@ -10,6 +10,7 @@
             <div id="foto-prev"><p>prev</p></div>
             <div id="foto-container">
                 <img id="foto" src="" alt="gallery-foto" />
+                <div id="foto-desc"></div>
             </div>
             <div id="foto-next"><p>next</p></div>
             <div id="close-preview">exit</div>
@@ -21,6 +22,8 @@
             <div class="gallery-item">
                 <div class="img-container">
                     <img src="@Model.Gallery.Pictures.ElementAt(i).Url" alt="gallery-main-img" img-id="@(i + 1)" />
+                    @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Author, new { @class = "picture-author", author_id = "aut" + (i + 1) })
+                    @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Descripton, new { @class = "picture-description", desc_id = "desc" + (i + 1) })
                 </div>
             </div>
         }
