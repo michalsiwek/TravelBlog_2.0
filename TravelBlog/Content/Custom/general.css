@@ -146,6 +146,7 @@ button {
     display: block;
     text-align: center;
     margin-bottom: 30px;
+    width: 1150px;
 }
 .pagination a
 {
@@ -172,6 +173,7 @@ aside
 {
     display: block;
     margin: 0 30px 0 30px;
+    width: 250px;
 }
 .aside-content h2
 {

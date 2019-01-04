@@ -23,5 +23,11 @@ namespace TravelBlog.Models
 
         public DateTime? LastModification { get; set; }
 
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+
+        public int SubcategoryId { get; set; }
+        public string SubcategoryName { get; set; }
+
     }
 }

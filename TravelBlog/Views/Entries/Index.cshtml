@@ -3,13 +3,7 @@
 
 <div id="scrollup" class="icon-angle-circled-up"></div>
 <div id="container">
-    <aside>
-        <div class="aside-content">
-            <div class="aside-ad-box">
-                <img src="/Images/ad_placeholder.jpg" alt="forto">
-            </div>
-        </div>
-    </aside>
+    
     <main id="entries">
         @foreach (var entry in Model.Entries)
         {
@@ -65,15 +59,12 @@
     <aside>
         <div class="aside-content">
             <nav>
-                <h2>Kontynenty</h2>
+                <h2>Podkategorie</h2>
                 <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
                 <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
                 <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>
                 <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new { categoryName = "azja-i-oceania" }, null)</div>
             </nav>
-            <div class="aside-ad-box">
-                <img src="/Images/ad_placeholder.jpg">
-            </div>
         </div>
 
     </aside>

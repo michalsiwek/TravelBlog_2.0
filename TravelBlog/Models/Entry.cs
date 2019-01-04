@@ -22,6 +22,9 @@ namespace TravelBlog.Models
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
 
+        public int SubcategoryId { get; set; }
+        public string SubcategoryName { get; set; }
+
         public string Author { get; set; }
         public string LastEditor { get; set; }
 
