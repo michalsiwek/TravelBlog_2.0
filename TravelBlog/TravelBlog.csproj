@@ -216,6 +216,7 @@
     <Content Include="Scripts\Custom\indexScrollToContact.js" />
     <Content Include="Scripts\Custom\jquery.scrollTo.min.js" />
     <Content Include="Scripts\Custom\scrollUp.js" />
+    <Content Include="Scripts\Custom\stickyRightAside.js" />
     <Content Include="Scripts\Custom\stickyTitleBar.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
