@@ -58,18 +58,24 @@
 
     <aside>
         <div id="right-aside" class="aside-content">
-            <div>
-                <h2>O blogu</h2>
-                <p style="text-align: justify;">Suspendisse placerat felis nec auctor gravida. Sed at leo congue, scelerisque felis et, vestibulum mi. Suspendisse potenti. Integer rutrum a augue sit amet imperdiet. Vivamus a semper odio. Nullam augue felis, laoreet eu ligula vitae, rutrum interdum metus.</p>
-            </div>
-            <br/>
             <nav>
-                <h2>Podkategorie</h2>
-                <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new {categoryName = "europa"}, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new {categoryName = "ameryka-polnocna"}, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new {categoryName = "ameryka-poludniowa"}, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new {categoryName = "azja-i-oceania"}, null)</div>
+                <h2>Kategorie</h2>
+                <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new { categoryName = "azja-i-oceania" }, null)</div>
             </nav>
+            <br />
+            <div id="aside-sticky">
+                <div>
+                    <h2>O blogu</h2>
+                    <p style="text-align: justify;">Suspendisse placerat felis nec auctor gravida. Sed at leo congue, scelerisque felis et, vestibulum mi. Suspendisse potenti. Integer rutrum a augue sit amet imperdiet. Vivamus a semper odio. Nullam augue felis, laoreet eu ligula vitae, rutrum interdum metus.</p>
+                </div>
+                <br />
+                <div>
+                    <h2>Ostatnie wpisy</h2>
+                </div>
+            </div>
         </div>
     </aside>
 

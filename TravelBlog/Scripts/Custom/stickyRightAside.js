@@ -1,8 +1,8 @@
-﻿$(window).on('scroll', function () { stickTitleBar() });
-var aside = $("#right-aside");
-var sticky = aside.position().top;
-function stickTitleBar() {
-    if ($(window).scrollTop() >= sticky) {
+﻿$(window).on('scroll', function () { stickAside() });
+var aside = $("#aside-sticky");
+var stickyTop = aside.position().top;
+function stickAside() {
+    if ($(window).scrollTop() >= stickyTop) {
         aside.addClass("sticky-aside");
     } else {
         aside.removeClass("sticky-aside");
