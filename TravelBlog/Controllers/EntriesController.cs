@@ -24,11 +24,12 @@ namespace TravelBlog.Controllers
         public ActionResult Index(int? page)
         {
             var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
+            var contentCategories = _requestDataRepository.GetElements<ContentCategory>();
 
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
 
-            var viewModel = _viewModelProvider.GetViewModel(page, entries);
+            var viewModel = _viewModelProvider.GetViewModel(page, entries, contentCategories);
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");
@@ -49,14 +50,15 @@ namespace TravelBlog.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Filter(string categoryName, int? page)
+        public ActionResult Filter(int catId, int? page)
         {
-            var entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(categoryName);
+            var entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(catId);
+            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParentId(catId);
 
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
 
-            var viewModel = _viewModelProvider.GetViewModel(page, entries);
+            var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");

@@ -60,6 +60,19 @@
         <div id="right-aside" class="aside-content">
             <nav>
                 <h2>Kategorie</h2>
+                @foreach (var cat in Model.ContentCategories)
+                {
+                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Filter", "Entries", new { catId = @cat.Id }, null)</div>
+                }
+                <hr/>
+                <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new { categoryName = "azja-i-oceania" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>
+                <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new { categoryName = "azja-i-oceania" }, null)</div>
                 <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
                 <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
                 <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>

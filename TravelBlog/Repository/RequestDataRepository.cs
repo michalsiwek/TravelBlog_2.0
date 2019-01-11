@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
+using Antlr.Runtime.Tree;
 using Newtonsoft.Json;
 using TravelBlog.Helpers;
 using TravelBlog.Infrastructure;
@@ -17,7 +18,8 @@ namespace TravelBlog.Repository
         T GetElement<T>(int id);
         List<Entry> GetTop3EntriesByCreateDate();
         List<Entry> GetEntriesByCreateDateDesc();
-        List<Entry> GetEntriesByCategoryAndCreateDateDesc(string categoryName);
+        List<Entry> GetEntriesByCategoryAndCreateDateDesc(int catId);
+        List<ContentSubcategory> GetContentSubcategoriesByParentId(int catId);
     }
 
     public class RequestDataRepository : IRequestDataRepository
@@ -93,7 +95,7 @@ namespace TravelBlog.Repository
             }
         }
 
-        public List<Entry> GetEntriesByCategoryAndCreateDateDesc(string categoryName)
+        public List<Entry> GetEntriesByCategoryAndCreateDateDesc(int catId)
         {
             using (var client = new WebClient())
             {
@@ -102,9 +104,23 @@ namespace TravelBlog.Repository
 
                 string jsonStr = Encoding.UTF8.GetString(requestsData);
                 var output = JsonConvert.DeserializeObject<List<Entry>>(jsonStr)
-                    .Where(p => p.CategoryName.ToLower().UnPolish().Replace(" ", "-").Replace(".", "")
-                        .Equals(categoryName.ToLower()))
+                    .Where(p => p.Id == catId)
                     .OrderByDescending(p => p.CreateDate)
+                    .ToList();
+
+                return output;
+            }
+        }
+
+        public List<ContentSubcategory> GetContentSubcategoriesByParentId(int catId)
+        {
+            using (var client = new WebClient())
+            {
+                var elementType = _requestService.GetTypeRoute(typeof(ContentSubcategory).Name);
+                var requestsData = client.DownloadData($"{_serverAddress}/{elementType}/{catId}");
+
+                string jsonStr = Encoding.UTF8.GetString(requestsData);
+                var output = JsonConvert.DeserializeObject<List<ContentSubcategory>>(jsonStr)
                     .ToList();
 
                 return output;

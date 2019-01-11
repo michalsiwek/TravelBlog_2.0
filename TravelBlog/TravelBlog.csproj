@@ -163,6 +163,8 @@
     <Compile Include="Infrastructure\RequestService.cs" />
     <Compile Include="Infrastructure\SendEmailService.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContentCategory.cs" />
+    <Compile Include="Models\ContentSubcategory.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\Picture.cs" />
