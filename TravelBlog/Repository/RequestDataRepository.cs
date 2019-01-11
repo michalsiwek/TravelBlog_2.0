@@ -19,6 +19,7 @@ namespace TravelBlog.Repository
         List<Entry> GetTop3EntriesByCreateDate();
         List<Entry> GetEntriesByCreateDateDesc();
         List<Entry> GetEntriesByCategoryAndCreateDateDesc(int catId);
+        List<Entry> GetEntriesBySubcategoryAndCreateDateDesc(int catId);
         List<ContentSubcategory> GetContentSubcategoriesByParentId(int catId);
     }
 
@@ -104,7 +105,24 @@ namespace TravelBlog.Repository
 
                 string jsonStr = Encoding.UTF8.GetString(requestsData);
                 var output = JsonConvert.DeserializeObject<List<Entry>>(jsonStr)
-                    .Where(p => p.Id == catId)
+                    .Where(p => p.CategoryId == catId)
+                    .OrderByDescending(p => p.CreateDate)
+                    .ToList();
+
+                return output;
+            }
+        }
+
+        public List<Entry> GetEntriesBySubcategoryAndCreateDateDesc(int catId)
+        {
+            using (var client = new WebClient())
+            {
+                var elementType = _requestService.GetTypeRoute(typeof(Entry).Name);
+                var requestsData = client.DownloadData($"{_serverAddress}/{elementType}");
+
+                string jsonStr = Encoding.UTF8.GetString(requestsData);
+                var output = JsonConvert.DeserializeObject<List<Entry>>(jsonStr)
+                    .Where(p => p.SubcategoryId == catId)
                     .OrderByDescending(p => p.CreateDate)
                     .ToList();
 

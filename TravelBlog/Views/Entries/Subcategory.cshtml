@@ -2,8 +2,8 @@
 @model EntriesViewModel
 
 <div id="scrollup" class="icon-angle-circled-up"></div>
-<div id="title-bar">@Model.Entries.First().CategoryName</div>
-<div id="title-bar-sticky">@Model.Entries.First().CategoryName</div>
+<div id="title-bar">@Model.Entries.First().SubcategoryName</div>
+<div id="title-bar-sticky">@Model.Entries.First().SubcategoryName</div>
 <div id="container">
     <aside>
         <div class="aside-content">
@@ -67,11 +67,11 @@
     <aside>
         <div class="aside-content">
             <nav>
-                <h2>Kontynenty</h2>
-                <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new { categoryName = "azja-i-oceania" }, null)</div>
+                <h2>@Model.Entries.First().CategoryName</h2>
+                @foreach (var cat in Model.ContentSubcategories)
+                {
+                    <div class="aside-continent">@Html.ActionLink(cat.Name, "Subcategory", "Entries", new { id = cat.Id }, null)</div>
+                }
             </nav>
             <div class="aside-ad-box">
                 <img src="/Images/ad_placeholder.jpg">

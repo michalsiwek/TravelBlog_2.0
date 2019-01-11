@@ -242,7 +242,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Entries\Index.cshtml" />
-    <Content Include="Views\Entries\Filter.cshtml" />
+    <Content Include="Views\Entries\Category.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Entries\Entry.cshtml" />
     <Content Include="Views\Shared\_MainPageLayout.cshtml" />
@@ -250,6 +250,7 @@
     <Content Include="Views\Galleries\Gallery.cshtml" />
     <Content Include="Views\Home\NoContent.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Entries\Subcategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

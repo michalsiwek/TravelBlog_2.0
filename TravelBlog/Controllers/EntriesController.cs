@@ -39,9 +39,13 @@ namespace TravelBlog.Controllers
 
         public ActionResult Entry(int id)
         {
+            var entry = _requestDataRepository.GetElement<Entry>(id);
+            var contentSubcategories = _requestDataRepository.GetContentSubcategoriesByParentId(entry.CategoryId);
+
             var viewModel = new EntryViewModel
             {
-                Entry = _requestDataRepository.GetElement<Entry>(id)
+                Entry = entry,
+                ContentSubcategories = contentSubcategories
             };
 
             if (viewModel.Entry == null)
@@ -50,13 +54,31 @@ namespace TravelBlog.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Filter(int catId, int? page)
+        public ActionResult Category(int id, int? page)
         {
-            var entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(catId);
-            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParentId(catId);
+            var entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(id);
 
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
+
+            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParentId(id);           
+
+            var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
+
+            if (viewModel.Entries.Count() == 0)
+                return RedirectToAction("NoContent", "Home");
+
+            return View(viewModel);
+        }
+
+        public ActionResult Subcategory(int id, int? page)
+        {
+            var entries = _requestDataRepository.GetEntriesBySubcategoryAndCreateDateDesc(id);
+
+            if (entries == null)
+                return RedirectToAction("NoContent", "Home");
+
+            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParentId(entries.First().CategoryId);            
 
             var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
 

@@ -2,8 +2,16 @@
 @model EntriesViewModel
 
 <div id="scrollup" class="icon-angle-circled-up"></div>
+<div id="title-bar">@Model.Entries.First().CategoryName</div>
+<div id="title-bar-sticky">@Model.Entries.First().CategoryName</div>
 <div id="container">
-    
+    <aside>
+        <div class="aside-content">
+            <div class="aside-ad-box">
+                <img src="/Images/ad_placeholder.jpg" alt="forto">
+            </div>
+        </div>
+    </aside>
     <main id="entries">
         @foreach (var entry in Model.Entries)
         {
@@ -28,7 +36,7 @@
         <div class="pagination">
             @if (Model.ActivePage > 1)
             {
-                <a href="/Entries?page=@(Model.ActivePage - 1)">&laquo;</a>
+                <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@(Model.ActivePage - 1)">&laquo;</a>
             }
             else
             {
@@ -42,12 +50,12 @@
                 }
                 else
                 {
-                    <a href="/Entries?page=@page.Index">@page.Index</a>
+                    <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@page.Index">@page.Index</a>
                 }
             }
             @if (Model.ActivePage < Model.AllPagesCount)
             {
-                <a href="/Entries?page=@(Model.ActivePage + 1)">&raquo;</a>
+                <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@(Model.ActivePage + 1)">&raquo;</a>
             }
             else
             {
@@ -57,30 +65,23 @@
     </main>
 
     <aside>
-        <div id="right-aside" class="aside-content">
+        <div class="aside-content">
             <nav>
                 <h2>Kategorie</h2>
-                @foreach (var cat in Model.ContentCategories)
+                @foreach (var cat in Model.ContentSubcategories)
                 {
-                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Category", "Entries", new { id = @cat.Id }, null)</div>
+                    <div class="aside-continent">@Html.ActionLink(cat.Name, "Subcategory", "Entries", new { id = cat.Id }, null)</div>
                 }
-                <hr/>
             </nav>
-            <br />
-            <div id="aside-sticky">
-                <div>
-                    <h2>O blogu</h2>
-                    <p style="text-align: justify;">Suspendisse placerat felis nec auctor gravida. Sed at leo congue, scelerisque felis et, vestibulum mi. Suspendisse potenti. Integer rutrum a augue sit amet imperdiet. Vivamus a semper odio. Nullam augue felis, laoreet eu ligula vitae, rutrum interdum metus.</p>
-                </div>
-                <br />
-                <div>
-                    <h2>Ostatnie wpisy</h2>
-                </div>
+            <div class="aside-ad-box">
+                <img src="/Images/ad_placeholder.jpg">
             </div>
         </div>
+
     </aside>
 
 </div>
+
 
 @Styles.Render("~/Content/Custom/entries")
 
@@ -89,5 +90,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryscrollto")
-    @Scripts.Render("~/bundles/entries")
+    @Scripts.Render("~/bundles/spec-entries")
 }
