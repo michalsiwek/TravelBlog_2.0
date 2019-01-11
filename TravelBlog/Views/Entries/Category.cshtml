@@ -29,7 +29,7 @@
         <div class="pagination">
             @if (Model.ActivePage > 1)
             {
-                <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@(Model.ActivePage - 1)">&laquo;</a>
+                <a href="@Model.Entries.First().CategoryId?page=@(Model.ActivePage - 1)">&laquo;</a>
             }
             else
             {
@@ -43,12 +43,12 @@
                 }
                 else
                 {
-                    <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@page.Index">@page.Index</a>
+                    <a href="@Model.Entries.First().CategoryId?page=@page.Index">@page.Index</a>
                 }
             }
             @if (Model.ActivePage < Model.AllPagesCount)
             {
-                <a href="Filter?categoryName=@Model.Entries.First().GetCategoryForUrl()&page=@(Model.ActivePage + 1)">&raquo;</a>
+                <a href="@Model.Entries.First().CategoryId?page=@(Model.ActivePage + 1)">&raquo;</a>
             }
             else
             {
