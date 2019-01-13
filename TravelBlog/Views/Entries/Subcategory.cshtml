@@ -77,7 +77,13 @@
                 </div>
                 <br />
                 <div>
-                    <h2>Ostatnie wpisy</h2>
+                    <h2>Może Cię zainteresować</h2>
+                    <figure class="random-entry">
+                        <a href="/Entries/@Model.RandomEntry.Id">
+                            <img src="@Model.RandomEntry.ImageUrl" alt="image" />
+                            <figcaption>@Model.RandomEntry.Title</figcaption>
+                        </a>
+                    </figure>
                 </div>
             </div>
         </div>

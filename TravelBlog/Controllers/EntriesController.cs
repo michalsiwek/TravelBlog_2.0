@@ -30,6 +30,7 @@ namespace TravelBlog.Controllers
                 return RedirectToAction("NoContent", "Home");
 
             var viewModel = _viewModelProvider.GetViewModel(page, entries, contentCategories);
+            viewModel.RandomEntry = _requestDataRepository.GetRandomElement<Entry>();
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");
@@ -45,8 +46,9 @@ namespace TravelBlog.Controllers
             var viewModel = new EntryViewModel
             {
                 Entry = entry,
-                ContentSubcategories = contentSubcategories
-            };
+                ContentSubcategories = contentSubcategories,
+                RandomEntry = _requestDataRepository.GetRandomElement<Entry>()
+        };
 
             if (viewModel.Entry == null)
                 return RedirectToAction("NoContent", "Home");
@@ -64,6 +66,7 @@ namespace TravelBlog.Controllers
             var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParentId(id);           
 
             var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
+            viewModel.RandomEntry = _requestDataRepository.GetRandomElement<Entry>();
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");
@@ -81,6 +84,7 @@ namespace TravelBlog.Controllers
             var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParentId(entries.First().CategoryId);            
 
             var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
+            viewModel.RandomEntry = _requestDataRepository.GetRandomElement<Entry>();
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");

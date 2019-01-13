@@ -9,5 +9,6 @@ namespace TravelBlog.Models.Viewmodels
     {
         public Entry Entry { get; set; }
         public IEnumerable<ContentSubcategory> ContentSubcategories { get; set; }
+        public Entry RandomEntry { get; set; }
     }
 }

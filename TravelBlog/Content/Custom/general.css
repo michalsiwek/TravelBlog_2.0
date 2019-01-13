@@ -186,6 +186,28 @@ aside {
     width: 250px;
 }
 
+.random-entry {
+    margin: 0;
+    height: 350px;
+    overflow: hidden;
+}
+
+.random-entry img {
+    max-height: 100%;
+}
+
+.random-entry figcaption {
+    text-align: center;
+    background-color: black;
+    margin-top: -250px;
+    margin-left: 10px;
+    width: 230px;
+    z-index: 999;
+    font-family: 'Marmelad', sans-serif;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
 
 /* PAGE PAGINATION */
 .pagination
