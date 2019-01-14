@@ -35,7 +35,7 @@ namespace TravelBlog
 
             bundles.Add(new ScriptBundle("~/bundles/spec-entries").Include(
                 "~/Scripts/Custom/scrollUp.js",
-                "~/Scripts/Custom/stickyRightAside.js",
+                "~/Scripts/Custom/stickyRightAside_spec.js",
                 "~/Scripts/Custom/stickyTitleBar.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/galleries").Include(

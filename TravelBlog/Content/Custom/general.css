@@ -135,7 +135,7 @@ button {
 .sticky-title
 {
     position: fixed;
-    z-index: 950;
+    z-index: 960;
     top: 0;
     left: 0;
     right: 0;
@@ -189,8 +189,12 @@ aside {
 .sticky-aside-bottom {
     position: absolute;
     z-index: 950;
-    bottom: 50px;
+    bottom: 30px;
     width: 250px;
+}
+
+.spec-sticky-aside {
+    top: 50px !important;
 }
 
 #random-entry {
@@ -223,19 +227,19 @@ aside {
 
 #random-entry-caption {
     width: 234px;
-    height: 382px;
+    height: 384px;
     line-height: 380px;
     position: absolute;
     top: 0;
     left: 0;
     text-align: center;
-    margin-top: 7px;
+    margin-top: 6px;
     margin-left: 6px;
     z-index: 999;
     font-family: 'Marmelad', sans-serif;
     font-size: 30px;
     transition: all 0.3s linear;
-    border: 2px solid #777777;
+    border: 2px solid #555555;
 }
 
 #random-entry-caption span {
