@@ -146,6 +146,7 @@ aside {
     display: block;
     margin: 0 30px 0 30px;
     width: 250px;
+    position: relative;
 }
 
 .aside-content h2 {
@@ -162,7 +163,6 @@ aside {
 
 .aside-continent a {
     max-width: 100%;
-    ;
     padding: 15px;
     display: block;
     text-align: center;
@@ -186,26 +186,63 @@ aside {
     width: 250px;
 }
 
-.random-entry {
-    margin: 0;
-    height: 350px;
-    overflow: hidden;
+.sticky-aside-bottom {
+    position: absolute;
+    z-index: 950;
+    bottom: 50px;
+    width: 250px;
 }
 
-.random-entry img {
+#random-entry {
+    margin: 0;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+#random-entry img {
     max-height: 100%;
 }
 
-.random-entry figcaption {
+#random-entry-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 998;
+    transition: all 0.3s linear;
+}
+
+#random-entry a:hover > #random-entry-cover {
+    background: rgba(0, 0, 0, .5);
+    -ms-transform: scale(1.01) translateZ(0); /* IE 9 */
+    -webkit-transform: scale(1.01) translateZ(0); /* Chrome, Safari, Opera */
+}
+
+#random-entry-caption {
+    width: 234px;
+    height: 382px;
+    line-height: 380px;
+    position: absolute;
+    top: 0;
+    left: 0;
     text-align: center;
-    background-color: black;
-    margin-top: -250px;
-    margin-left: 10px;
-    width: 230px;
+    margin-top: 7px;
+    margin-left: 6px;
     z-index: 999;
     font-family: 'Marmelad', sans-serif;
     font-size: 30px;
-    margin-right: 10px;
+    transition: all 0.3s linear;
+    border: 2px solid #777777;
+}
+
+#random-entry-caption span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    padding: 10px;
 }
 
 

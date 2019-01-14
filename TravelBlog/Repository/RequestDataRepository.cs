@@ -16,7 +16,7 @@ namespace TravelBlog.Repository
     {
         List<T> GetElements<T>();
         T GetElement<T>(int id);
-        T GetRandomElement<T>();
+        Entry GetRandomEntry();
         List<Entry> GetTop3EntriesByCreateDate();
         List<Entry> GetEntriesByCreateDateDesc();
         List<Entry> GetEntriesByCategoryAndCreateDateDesc(int catId);
@@ -64,17 +64,20 @@ namespace TravelBlog.Repository
             }
         }
 
-        public T GetRandomElement<T>()
+        public Entry GetRandomEntry()
         {
             using (var client = new WebClient())
             {
-                var elementType = _requestService.GetTypeRoute(typeof(T).Name);
+                var elementType = _requestService.GetTypeRoute(typeof(Entry).Name);
                 var requestsData = client.DownloadData($"{_serverAddress}/{elementType}");
 
                 string jsonStr = Encoding.UTF8.GetString(requestsData);
-                var output = JsonConvert.DeserializeObject<List<T>>(jsonStr);
+                var output = JsonConvert
+                    .DeserializeObject<List<Entry>>(jsonStr)
+                    .Where(e => !string.IsNullOrEmpty(e.ImageUrl))
+                    .ToList();
 
-                return output.GetRandomElement<T>();
+                return output.GetRandomElement();
             }
         }
 

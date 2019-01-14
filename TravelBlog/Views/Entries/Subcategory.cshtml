@@ -78,12 +78,15 @@
                 <br />
                 <div>
                     <h2>Może Cię zainteresować</h2>
-                    <figure class="random-entry">
-                        <a href="/Entries/@Model.RandomEntry.Id">
+                    <div id="random-entry">
+                        <a href="/Entries/Entry/@Model.RandomEntry.Id">
                             <img src="@Model.RandomEntry.ImageUrl" alt="image" />
-                            <figcaption>@Model.RandomEntry.Title</figcaption>
+                            <div id="random-entry-cover"></div>
+                            <div id="random-entry-caption">
+                                <span>@Model.RandomEntry.Title</span>
+                            </div>
                         </a>
-                    </figure>
+                    </div>
                 </div>
             </div>
         </div>
