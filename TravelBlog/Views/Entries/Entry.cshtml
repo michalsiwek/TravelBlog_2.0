@@ -40,7 +40,12 @@
                     <h2>@Model.Entry.CategoryName</h2>
                     @foreach (var cat in Model.ContentSubcategories)
                     {
-                        <div class="aside-continent">@Html.ActionLink(cat.Name, "Subcategory", "Entries", new { id = cat.Id }, null)</div>
+                        var style = "";
+                        if (cat.Id == Model.Entry.SubcategoryId)
+                        {
+                            style = "font-weight: bold;text-transform: uppercase;";
+                        }
+                        <div class="aside-continent" style="@style">@Html.ActionLink(cat.Name, "Subcategory", "Entries", new { id = cat.Id }, null)</div>
                     }
                 </nav>
                 <br />

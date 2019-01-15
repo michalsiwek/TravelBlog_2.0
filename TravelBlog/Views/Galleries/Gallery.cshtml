@@ -26,7 +26,12 @@
                 <h2>Kategorie</h2>
                 @foreach (var cat in Model.ContentSubcategories)
                 {
-                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Subcategory", "Galleries", new { id = @cat.Id }, null)</div>
+                    var style = "";
+                    if (cat.Id == Model.Gallery.SubcategoryId)
+                    {
+                        style = "font-weight: bold;text-transform: uppercase;";
+                    }
+                    <div class="aside-continent" style="@style">@Html.ActionLink(@cat.Name, "Subcategory", "Galleries", new { id = @cat.Id }, null)</div>
                 }
             </nav>
             <br />
