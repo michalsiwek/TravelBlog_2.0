@@ -11,7 +11,7 @@
             {
                 <div class="gallery-item">
                     <div class="img-container">
-                        <img src="@Model.Gallery.Pictures.ElementAt(i).Url" alt="gallery-main-img" img-id="@(i + 1)" />
+                        <img class="gallery-pic-mini" src="@Model.Gallery.Pictures.ElementAt(i).Url" alt="gallery-main-img" img-id="@(i + 1)" />
                         @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Author, new { @class = "picture-author", author_id = "aut" + (i + 1) })
                         @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Descripton, new { @class = "picture-description", desc_id = "desc" + (i + 1) })
                     </div>
@@ -21,7 +21,7 @@
     </main>
 
     <aside>
-        <div id="right-aside" class="aside-content">
+        <div class="aside-content" class="aside-content">
             <nav>
                 <h2>Kategorie</h2>
                 @foreach (var cat in Model.ContentSubcategories)

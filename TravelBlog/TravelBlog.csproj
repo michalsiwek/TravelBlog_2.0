@@ -216,6 +216,7 @@
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\Custom\disqus.js" />
     <Content Include="Scripts\Custom\fotoPreview.js" />
+    <Content Include="Scripts\Custom\imageScale.js" />
     <Content Include="Scripts\Custom\indexScrollToContact.js" />
     <Content Include="Scripts\Custom\jquery.scrollTo.min.js" />
     <Content Include="Scripts\Custom\scrollUp.js" />

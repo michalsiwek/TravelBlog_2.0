@@ -1,7 +1,7 @@
 ﻿$(window).on('scroll', function () { stickAside() });
 
 var contentHeight = $(".content-main-box").height();
-var asideHeight = $("#right-aside").height();
+var asideHeight = $(".aside-content").height();
 
 var aside = $("#aside-sticky");
 var stickyTop = aside.offset().top;

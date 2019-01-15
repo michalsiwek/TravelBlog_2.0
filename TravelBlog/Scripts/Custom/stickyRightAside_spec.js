@@ -1,7 +1,7 @@
 ﻿$(window).on('scroll', function () { stickAside() });
 
 var contentHeight = $(".content-main-box").height();
-var asideHeight = $("#right-aside").height();
+var asideHeight = $(".aside-content").height();
 
 var aside = $("#aside-sticky");
 
@@ -24,7 +24,7 @@ function stickAside() {
         if (scrollTop >= stickyTop && !result) {
             aside.addClass("sticky-aside");
             aside.removeClass("sticky-aside-bottom");
-            if (stickyBarLength == 1) {
+            if (stickyBarLength === 1) {
                 aside.addClass("spec-sticky-aside");
             }
         } else if (result) {

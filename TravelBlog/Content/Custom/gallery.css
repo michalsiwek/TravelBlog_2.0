@@ -150,9 +150,6 @@
 }
 .img-container img
 {
-    width: 100%;
-    min-width: 100%;
-    min-height: 100%;
     opacity: 0.9;
     transition: all 0.3s linear;
     -webkit-backface-visibility: hidden;

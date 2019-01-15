@@ -10,7 +10,7 @@
                 <figure class="gallery-item">
                     <a href="/Galleries/Gallery/@gallery.Id">
                         <div class="img-container">
-                            <img src="@Url.Content(gallery.Pictures.First().Url)" alt="gallery-main-img" />
+                            <img class="gallery-pic-mini" src="@Url.Content(gallery.Pictures.First().Url)" alt="gallery-main-img" />
                         </div>
                         <figcaption class="caption">@gallery.Title</figcaption>
                     </a>
@@ -20,7 +20,7 @@
     </main>
 
     <aside>
-        <div id="right-aside" class="aside-content">
+        <div class="aside-content" class="aside-content">
             <nav>
                 <h2>Kategorie</h2>
                 @foreach (var cat in Model.ContentCategories)

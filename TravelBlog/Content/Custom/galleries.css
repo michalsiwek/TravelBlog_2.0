@@ -40,15 +40,14 @@
 .img-container
 {
     width: 290px;
+    height: 200px;
     overflow: hidden;
 }
 .img-container img
 {
-    height: 200px;
-    width: auto;
     opacity: 0.9;
     transition: all 0.3s linear;
-     -webkit-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 .caption
 {
