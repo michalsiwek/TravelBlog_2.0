@@ -6,19 +6,6 @@
     justify-content: center;
 }
 
-#entries
-{
-    display: block;
-    text-align: justify;
-    width: 900px;
-    margin-top: 20px;
-}
-
-#entries h1
-{
-    text-align: left;
-}
-
 #scrollup
 {
     position: fixed;

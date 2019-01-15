@@ -27,6 +27,7 @@ namespace TravelBlog
 
             bundles.Add(new ScriptBundle("~/bundles/entry").Include(
                 "~/Scripts/Custom/disqus.js",
+                "~/Scripts/Custom/stickyRightAside.js",
                 "~/Scripts/Custom/scrollUp.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/entries").Include(
@@ -40,11 +41,18 @@ namespace TravelBlog
 
             bundles.Add(new ScriptBundle("~/bundles/galleries").Include(
                 "~/Scripts/Custom/scrollUp.js",
+                "~/Scripts/Custom/stickyRightAside.js",
+                "~/Scripts/Custom/stickyTitleBar.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/spec-galleries").Include(
+                "~/Scripts/Custom/scrollUp.js",
+                "~/Scripts/Custom/stickyRightAside_spec.js",
                 "~/Scripts/Custom/stickyTitleBar.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/gallery").Include(
                 "~/Scripts/Custom/fotoPreview.js",
                 "~/Scripts/Custom/scrollUp.js",
+                "~/Scripts/Custom/stickyRightAside_spec.js",
                 "~/Scripts/Custom/stickyTitleBar.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/index").Include(

@@ -24,7 +24,7 @@ namespace TravelBlog.Controllers
         public ActionResult Index(int? page)
         {
             var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
-            var contentCategories = _requestDataRepository.GetElements<ContentCategory>();
+            var contentCategories = _requestDataRepository.GetContentCategories_Entry();
 
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
@@ -41,7 +41,7 @@ namespace TravelBlog.Controllers
         public ActionResult Entry(int id)
         {
             var entry = _requestDataRepository.GetElement<Entry>(id);
-            var contentSubcategories = _requestDataRepository.GetContentSubcategoriesByParentId(entry.CategoryId);
+            var contentSubcategories = _requestDataRepository.GetContentSubcategoriesByParent_Entry(entry.CategoryId);
 
             var viewModel = new EntryViewModel
             {
@@ -63,7 +63,7 @@ namespace TravelBlog.Controllers
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
 
-            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParentId(id);           
+            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParent_Entry(id);           
 
             var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
             viewModel.RandomEntry = _requestDataRepository.GetRandomEntry();
@@ -81,7 +81,7 @@ namespace TravelBlog.Controllers
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
 
-            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParentId(entries.First().CategoryId);            
+            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParent_Entry(entries.First().CategoryId);            
 
             var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
             viewModel.RandomEntry = _requestDataRepository.GetRandomEntry();

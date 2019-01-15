@@ -2,6 +2,8 @@
 @model GalleriesViewModel
 
 <div id="scrollup" class="icon-angle-circled-up"></div>
+<div id="title-bar">@Model.Galleries.First().CategoryName</div>
+<div id="title-bar-sticky">@Model.Galleries.First().CategoryName</div>
 <div id="container">
     <main class="content-main-box">
         <div id="gallery-container">
@@ -23,9 +25,9 @@
         <div id="right-aside" class="aside-content">
             <nav>
                 <h2>Kategorie</h2>
-                @foreach (var cat in Model.ContentCategories)
+                @foreach (var cat in Model.ContentSubcategories)
                 {
-                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Category", "Galleries", new { id = @cat.Id }, null)</div>
+                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Subcategory", "Galleries", new { id = @cat.Id }, null)</div>
                 }
             </nav>
             <br />
@@ -59,5 +61,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryscrollto")
-    @Scripts.Render("~/bundles/galleries")
+    @Scripts.Render("~/bundles/spec-galleries")
 }

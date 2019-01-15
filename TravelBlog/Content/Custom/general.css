@@ -202,6 +202,7 @@ aside {
     height: 400px;
     overflow: hidden;
     position: relative;
+    margin-bottom: 30px;
 }
 
 #random-entry img {
@@ -215,7 +216,7 @@ aside {
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, .7);
-    z-index: 998;
+    z-index: 985;
     transition: all 0.3s linear;
 }
 
@@ -235,7 +236,7 @@ aside {
     text-align: center;
     margin-top: 6px;
     margin-left: 6px;
-    z-index: 999;
+    z-index: 990;
     font-family: 'Marmelad', sans-serif;
     font-size: 30px;
     transition: all 0.3s linear;
@@ -341,3 +342,16 @@ footer > h
     color: #d94348;
     font-size: 12px;
 }
+
+/* MAIN CONTENT TEMPLATE */
+
+.content-main-box {
+    display: block;
+    text-align: justify;
+    width: 900px;
+    margin-top: 20px;
+}
+
+.content-main-box h1 {
+    text-align: left;
+}    

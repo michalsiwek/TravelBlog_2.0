@@ -1,34 +1,68 @@
 ﻿@using TravelBlog.Models.Viewmodels
 @model GalleryViewModel
 
+<div id="scrollup" class="icon-angle-circled-up"></div>
 <div id="title-bar">@Model.Gallery.Title</div>
 <div id="title-bar-sticky">@Model.Gallery.Title</div>
-
-<main>
-    <div id="foto-preview">
-        <div id="wrapper">
-            <div id="foto-prev"><p>prev</p></div>
-            <div id="foto-container">
-                <img id="foto" src="" alt="gallery-foto" />
-                <div id="foto-desc"></div>
-            </div>
-            <div id="foto-next"><p>next</p></div>
-            <div id="close-preview">exit</div>
+<div id="container">
+    <main class="content-main-box">
+        <div id="gallery-container">
+            @for (int i = 0; i < Model.Gallery.Pictures.Count(); i++)
+            {
+                <div class="gallery-item">
+                    <div class="img-container">
+                        <img src="@Model.Gallery.Pictures.ElementAt(i).Url" alt="gallery-main-img" img-id="@(i + 1)" />
+                        @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Author, new { @class = "picture-author", author_id = "aut" + (i + 1) })
+                        @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Descripton, new { @class = "picture-description", desc_id = "desc" + (i + 1) })
+                    </div>
+                </div>
+            }
         </div>
-    </div>
-    <div id="gallery-container">
-        @for (int i = 0; i < Model.Gallery.Pictures.Count(); i++)
-        {
-            <div class="gallery-item">
-                <div class="img-container">
-                    <img src="@Model.Gallery.Pictures.ElementAt(i).Url" alt="gallery-main-img" img-id="@(i + 1)" />
-                    @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Author, new { @class = "picture-author", author_id = "aut" + (i + 1) })
-                    @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Descripton, new { @class = "picture-description", desc_id = "desc" + (i + 1) })
+    </main>
+
+    <aside>
+        <div id="right-aside" class="aside-content">
+            <nav>
+                <h2>Kategorie</h2>
+                @foreach (var cat in Model.ContentSubcategories)
+                {
+                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Subcategory", "Galleries", new { id = @cat.Id }, null)</div>
+                }
+            </nav>
+            <br />
+            <div id="aside-sticky">
+                <div>
+                    <h2>O blogu</h2>
+                    <p style="text-align: justify;">Suspendisse placerat felis nec auctor gravida. Sed at leo congue, scelerisque felis et, vestibulum mi. Suspendisse potenti. Integer rutrum a augue sit amet imperdiet. Vivamus a semper odio. Nullam augue felis, laoreet eu ligula vitae, rutrum interdum metus.</p>
+                </div>
+                <br />
+                <div>
+                    <h2>Może Cię zainteresować</h2>
+                    <div id="random-entry">
+                        <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                            <img src="@Model.RandomEntry.ImageUrl" alt="image" />
+                            <div id="random-entry-cover"></div>
+                            <div id="random-entry-caption">
+                                <span>@Model.RandomEntry.Title</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        }
+        </div>
+    </aside>
+</div>
+<div id="foto-preview">
+    <div id="wrapper">
+        <div id="foto-prev"><p>prev</p></div>
+        <div id="foto-container">
+            <img id="foto" src="" alt="gallery-foto" />
+            <div id="foto-desc"></div>
+        </div>
+        <div id="foto-next"><p>next</p></div>
+        <div id="close-preview">exit</div>
     </div>
-</main>
+</div>
 
 @Styles.Render("~/Content/Custom/gallery")
 
