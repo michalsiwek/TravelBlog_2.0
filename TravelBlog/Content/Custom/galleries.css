@@ -33,18 +33,18 @@
 .gallery-item
 {
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
     position: relative;
     cursor: pointer;
 }
 .img-container
 {
-    width: 400px;
+    width: 290px;
     overflow: hidden;
 }
 .img-container img
 {
-    height: 300px;
+    height: 200px;
     width: auto;
     opacity: 0.9;
     transition: all 0.3s linear;
