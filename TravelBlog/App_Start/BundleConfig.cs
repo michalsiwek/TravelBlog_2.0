@@ -59,6 +59,8 @@ namespace TravelBlog
 
             bundles.Add(new ScriptBundle("~/bundles/index").Include(
                 "~/Scripts/Custom/jquery.scrollTo.min.js",
+                "~/Scripts/Custom/imageScale.js",
+                "~/Scripts/Custom/stickyRightAside.js",
                 "~/Scripts/Custom/indexScrollToContact.js"));
 
             bundles.Add(new StyleBundle("~/Content/Fontello").Include(

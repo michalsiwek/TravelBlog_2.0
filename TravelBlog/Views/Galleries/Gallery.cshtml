@@ -11,7 +11,7 @@
             {
                 <div class="gallery-item">
                     <div class="img-container">
-                        <img class="gallery-pic-mini" src="@Model.Gallery.Pictures.ElementAt(i).Url" alt="gallery-main-img" img-id="@(i + 1)" />
+                        <img class="resizable-pic" src="@Model.Gallery.Pictures.ElementAt(i).Url" alt="gallery-main-img" img-id="@(i + 1)" />
                         @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Author, new { @class = "picture-author", author_id = "aut" + (i + 1) })
                         @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Descripton, new { @class = "picture-description", desc_id = "desc" + (i + 1) })
                     </div>

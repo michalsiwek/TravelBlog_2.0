@@ -7,13 +7,42 @@
 <div id="scrollup" class="icon-angle-circled-up"></div>
 <section>
     <div id="top-section">
-        <div class="paragraph">
-            <header>
-                <h2 class="article-header">Info</h2>
-            </header>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero ligula, porta quis quam at, convallis egestas lacus. Duis convallis efficitur volutpat. Nam pulvinar ullamcorper bibendum. Aenean sit amet justo in tellus porta pellentesque. Praesent tincidunt ornare nisi ac convallis. Etiam dictum molestie elementum. Etiam ullamcorper lectus et erat molestie, gravida consequat neque fringilla.
-            </p>
+        <div id="entries-container">
+            <div class="primary-entry">
+                <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                    <div class="img-container">
+                        <img class="resizable-pic" src="@Model.RandomEntry.ImageUrl" alt="image" />
+                        <div class="entry-caption">
+                            <span>@Model.RandomEntry.Title</span>
+                        </div>
+                    </div>
+                    <div id="primary-entry-cover"></div>
+                </a>
+            </div>
+            <div id="secondary-entries-container">
+                <div class="secondary-entry">
+                    <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                        <div class="img-container secondary-entry-img">
+                            <img class="resizable-pic secondary-pic" src="@Model.RandomEntry.ImageUrl" alt="image" />
+                            <div class="entry-caption">
+                                <span>@Model.RandomEntry.Title</span>
+                            </div>
+                        </div>
+                        <div class="entry-cover"></div>
+                    </a>
+                </div>
+                <div class="secondary-entry">
+                    <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                        <div class="img-container secondary-entry-img">
+                            <img class="resizable-pic secondary-pic" src="@Model.RandomEntry.ImageUrl" alt="image" />
+                            <div class="entry-caption">
+                                <span>@Model.RandomEntry.Title</span>
+                            </div>
+                        </div>
+                        <div id="primary-entry-cover"></div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -72,3 +101,4 @@
 @Scripts.Render("~/bundles/jqueryval")
 @Scripts.Render("~/bundles/jqueryscrollto")
 @Scripts.Render("~/bundles/entries")
+@Scripts.Render("~/bundles/index")

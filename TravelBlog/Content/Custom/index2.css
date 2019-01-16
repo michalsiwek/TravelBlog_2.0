@@ -1,4 +1,124 @@
 ﻿#top-section {
     width: 100%;
+    height: 600px;
     background-color: #262e3e;
+}
+
+#entries-container {
+    text-align: center;
+    width: 1200px;
+    margin: 0 auto 0 auto;
+    display: flex;
+}
+
+.entry-caption {
+    position: absolute;
+    z-index: 940;
+    font-size: 24px;
+    text-align: left;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 50px 20px 20px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+    transition: all 0.8s linear;
+}
+
+.primary-entry:hover img {
+    opacity: 1;
+}
+
+.primary-entry:hover .entry-caption, .secondary-entry:hover .entry-caption {
+    background-color: rgba(28, 116, 178, 0.6);
+    color: #eeeeee;
+}
+
+.img-container {
+    height: 540px;
+    position: relative;
+}
+
+.resisable-pic {
+    width: 700px;
+    height: 600px;
+}
+
+.secondary-pic {
+    width: 340px;
+    height: 240px;
+}
+
+/* PRIMARY */
+.primary-entry {
+    margin: 0;
+    width: 700px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    margin: 30px 0 30px 0;
+}
+
+.primary-entry img {
+    max-height: 100%;
+}
+
+.primary-entry-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 985;
+    transition: all 0.3s linear;
+}
+
+.primary-entry a:hover > .primary-entry-cover {
+    background: rgba(0, 0, 0, .5);
+    -ms-transform: scale(1.01) translateZ(0); /* IE 9 */
+    -webkit-transform: scale(1.01) translateZ(0); /* Chrome, Safari, Opera */
+}
+
+.primary-entry-caption {
+    width: 234px;
+    height: 384px;
+    line-height: 380px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    margin-top: 6px;
+    margin-left: 6px;
+    z-index: 990;
+    font-family: 'Marmelad', sans-serif;
+    font-size: 30px;
+    transition: all 0.3s linear;
+    border: 2px solid #555555;
+}
+
+.primary-entry-caption span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    padding: 10px;
+}
+
+/* SECONDARY */
+
+.secondary-entry {
+    width: 340px;
+    height: 250px;
+    margin: 0 0 20px 20px;
+}
+
+#secondary-entries-container {
+    margin-top: 30px;
+}
+
+.secondary-entry-img {
+    height: 270px !important;
+    width: 340px;
+    height: 240px;
 }
