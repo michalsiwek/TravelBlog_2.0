@@ -24,11 +24,13 @@ namespace TravelBlog.Controllers
         public ActionResult Index(int? page)
         {
             var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
+            var contentCategories = _requestDataRepository.GetContentCategories_Entry();
 
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
 
-            var viewModel = _viewModelProvider.GetViewModel(page, entries);
+            var viewModel = _viewModelProvider.GetViewModel(page, entries, contentCategories);
+            viewModel.RandomEntry = _requestDataRepository.GetRandomEntry();
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");
@@ -38,9 +40,14 @@ namespace TravelBlog.Controllers
 
         public ActionResult Entry(int id)
         {
+            var entry = _requestDataRepository.GetElement<Entry>(id);
+            var contentSubcategories = _requestDataRepository.GetContentSubcategoriesByParent_Entry(entry.CategoryId);
+
             var viewModel = new EntryViewModel
             {
-                Entry = _requestDataRepository.GetElement<Entry>(id)
+                Entry = entry,
+                ContentSubcategories = contentSubcategories,
+                RandomEntry = _requestDataRepository.GetRandomEntry()
             };
 
             if (viewModel.Entry == null)
@@ -49,14 +56,35 @@ namespace TravelBlog.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Filter(string categoryName, int? page)
+        public ActionResult Category(int id, int? page)
         {
-            var entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(categoryName);
+            var entries = _requestDataRepository.GetEntriesByCategoryAndCreateDateDesc(id);
 
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
 
-            var viewModel = _viewModelProvider.GetViewModel(page, entries);
+            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParent_Entry(id);           
+
+            var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
+            viewModel.RandomEntry = _requestDataRepository.GetRandomEntry();
+
+            if (viewModel.Entries.Count() == 0)
+                return RedirectToAction("NoContent", "Home");
+
+            return View(viewModel);
+        }
+
+        public ActionResult Subcategory(int id, int? page)
+        {
+            var entries = _requestDataRepository.GetEntriesBySubcategoryAndCreateDateDesc(id);
+
+            if (entries == null)
+                return RedirectToAction("NoContent", "Home");
+
+            var contentSubCategories = _requestDataRepository.GetContentSubcategoriesByParent_Entry(entries.First().CategoryId);            
+
+            var viewModel = _viewModelProvider.GetViewModel(page, entries, null, contentSubCategories);
+            viewModel.RandomEntry = _requestDataRepository.GetRandomEntry();
 
             if (viewModel.Entries.Count() == 0)
                 return RedirectToAction("NoContent", "Home");

@@ -9,7 +9,8 @@ namespace TravelBlog.Infrastructure
 {
     public interface IEntriesViewModelProvider
     {
-        EntriesViewModel GetViewModel(int? pageRequest, IEnumerable<Entry> entries);
+        EntriesViewModel GetViewModel(int? pageRequest, IEnumerable<Entry> entries,
+            IEnumerable<ContentCategory> contentCategories, IEnumerable<ContentSubcategory> contentSubcateories = null);
     }
 
     public class EntriesViewModelProvider : IEntriesViewModelProvider
@@ -22,7 +23,8 @@ namespace TravelBlog.Infrastructure
             _paginationHandler = paginationHandler;
         }
 
-        public EntriesViewModel GetViewModel(int? pageRequest, IEnumerable<Entry> entries)
+        public EntriesViewModel GetViewModel(int? pageRequest, IEnumerable<Entry> entries,
+            IEnumerable<ContentCategory> contentCategories, IEnumerable<ContentSubcategory> contentSubcateories = null)
         {
             int page = (pageRequest == null || pageRequest < 1) ? 1 : (int)pageRequest;
 
@@ -38,6 +40,8 @@ namespace TravelBlog.Infrastructure
                 Entries = entries
                     .Skip((page - 1) * _entriesPerPage)
                     .Take(_entriesPerPage),
+                ContentCategories = contentCategories,
+                ContentSubcategories = contentSubcateories,
                 AllPagesCount = numbOfPages
             };
 

@@ -155,6 +155,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CollectionExtensions.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Infrastructure\ConnectionFactory.cs" />
     <Compile Include="Infrastructure\EntriesViewModelProvider.cs" />
@@ -163,6 +164,8 @@
     <Compile Include="Infrastructure\RequestService.cs" />
     <Compile Include="Infrastructure\SendEmailService.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContentCategory.cs" />
+    <Compile Include="Models\ContentSubcategory.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\Picture.cs" />
@@ -213,9 +216,12 @@
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\Custom\disqus.js" />
     <Content Include="Scripts\Custom\fotoPreview.js" />
+    <Content Include="Scripts\Custom\imageScale.js" />
     <Content Include="Scripts\Custom\indexScrollToContact.js" />
     <Content Include="Scripts\Custom\jquery.scrollTo.min.js" />
     <Content Include="Scripts\Custom\scrollUp.js" />
+    <Content Include="Scripts\Custom\stickyRightAside.js" />
+    <Content Include="Scripts\Custom\stickyRightAside_spec.js" />
     <Content Include="Scripts\Custom\stickyTitleBar.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -239,7 +245,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Entries\Index.cshtml" />
-    <Content Include="Views\Entries\Filter.cshtml" />
+    <Content Include="Views\Entries\Category.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Entries\Entry.cshtml" />
     <Content Include="Views\Shared\_MainPageLayout.cshtml" />
@@ -247,6 +253,9 @@
     <Content Include="Views\Galleries\Gallery.cshtml" />
     <Content Include="Views\Home\NoContent.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Entries\Subcategory.cshtml" />
+    <Content Include="Views\Galleries\Category.cshtml" />
+    <Content Include="Views\Galleries\Subcategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

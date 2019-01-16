@@ -1,21 +1,22 @@
 ﻿@using TravelBlog.Models.Viewmodels
-@model GalleryViewModel
+@model GalleriesViewModel
 
 <div id="scrollup" class="icon-angle-circled-up"></div>
-<div id="title-bar">@Model.Gallery.Title</div>
-<div id="title-bar-sticky">@Model.Gallery.Title</div>
+<div id="title-bar">@Model.Galleries.First().SubcategoryName</div>
+<div id="title-bar-sticky">@Model.Galleries.First().SubcategoryName</div>
 <div id="container">
     <main class="content-main-box">
         <div id="gallery-container">
-            @for (int i = 0; i < Model.Gallery.Pictures.Count(); i++)
+            @foreach (var gallery in Model.Galleries)
             {
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img class="gallery-pic-mini" src="@Model.Gallery.Pictures.ElementAt(i).Url" alt="gallery-main-img" img-id="@(i + 1)" />
-                        @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Author, new { @class = "picture-author", author_id = "aut" + (i + 1) })
-                        @Html.HiddenFor(p => p.Gallery.Pictures.ElementAt(i).Descripton, new { @class = "picture-description", desc_id = "desc" + (i + 1) })
-                    </div>
-                </div>
+                <figure class="gallery-item">
+                    <a href="/Galleries/Gallery/@gallery.Id">
+                        <div class="img-container">
+                            <img class="gallery-pic-mini" src="@Url.Content(gallery.Pictures.First().Url)" alt="gallery-main-img" />
+                        </div>
+                        <figcaption class="caption">@gallery.Title</figcaption>
+                    </a>
+                </figure>
             }
         </div>
     </main>
@@ -26,12 +27,7 @@
                 <h2>Kategorie</h2>
                 @foreach (var cat in Model.ContentSubcategories)
                 {
-                    var style = "";
-                    if (cat.Id == Model.Gallery.SubcategoryId)
-                    {
-                        style = "font-weight: bold;text-transform: uppercase;";
-                    }
-                    <div class="aside-continent" style="@style">@Html.ActionLink(@cat.Name, "Subcategory", "Galleries", new { id = @cat.Id }, null)</div>
+                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Subcategory", "Galleries", new { id = @cat.Id }, null)</div>
                 }
             </nav>
             <br />
@@ -57,24 +53,13 @@
         </div>
     </aside>
 </div>
-<div id="foto-preview">
-    <div id="wrapper">
-        <div id="foto-prev"><p>prev</p></div>
-        <div id="foto-container">
-            <img id="foto" src="" alt="gallery-foto" />
-            <div id="foto-desc"></div>
-        </div>
-        <div id="foto-next"><p>next</p></div>
-        <div id="close-preview">exit</div>
-    </div>
-</div>
 
-@Styles.Render("~/Content/Custom/gallery")
+@Styles.Render("~/Content/Custom/galleries")
 
 @section Scripts
 {
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryscrollto")
-    @Scripts.Render("~/bundles/gallery")
+    @Scripts.Render("~/bundles/spec-galleries")
 }

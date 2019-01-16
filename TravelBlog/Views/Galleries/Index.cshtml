@@ -1,23 +1,56 @@
 ﻿@using TravelBlog.Models.Viewmodels
 @model GalleriesViewModel
 
-<div id="title-bar">Galerie</div>
-<div id="title-bar-sticky">Galerie</div>
-<main>
-    <div id="gallery-container">
-        @foreach (var gallery in Model.Galleries)
-        {
-            <figure class="gallery-item">
-                <a href="/Galleries/Gallery/@gallery.Id">
-                    <div class="img-container">
-                        <img src="@Url.Content(gallery.Pictures.First().Url)" alt="gallery-main-img"/>
+<div id="scrollup" class="icon-angle-circled-up"></div>
+<div id="container">
+    <main class="content-main-box">
+        <div id="gallery-container">
+            @foreach (var gallery in Model.Galleries)
+            {
+                <figure class="gallery-item">
+                    <a href="/Galleries/Gallery/@gallery.Id">
+                        <div class="img-container">
+                            <img class="gallery-pic-mini" src="@Url.Content(gallery.Pictures.First().Url)" alt="gallery-main-img" />
+                        </div>
+                        <figcaption class="caption">@gallery.Title</figcaption>
+                    </a>
+                </figure>
+            }
+        </div>
+    </main>
+
+    <aside>
+        <div class="aside-content" class="aside-content">
+            <nav>
+                <h2>Kategorie</h2>
+                @foreach (var cat in Model.ContentCategories)
+                {
+                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Category", "Galleries", new { id = @cat.Id }, null)</div>
+                }
+            </nav>
+            <br />
+            <div id="aside-sticky">
+                <div>
+                    <h2>O blogu</h2>
+                    <p style="text-align: justify;">Suspendisse placerat felis nec auctor gravida. Sed at leo congue, scelerisque felis et, vestibulum mi. Suspendisse potenti. Integer rutrum a augue sit amet imperdiet. Vivamus a semper odio. Nullam augue felis, laoreet eu ligula vitae, rutrum interdum metus.</p>
+                </div>
+                <br />
+                <div>
+                    <h2>Może Cię zainteresować</h2>
+                    <div id="random-entry">
+                        <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                            <img src="@Model.RandomEntry.ImageUrl" alt="image" />
+                            <div id="random-entry-cover"></div>
+                            <div id="random-entry-caption">
+                                <span>@Model.RandomEntry.Title</span>
+                            </div>
+                        </a>
                     </div>
-                    <figcaption class="caption">@gallery.Title</figcaption>
-                </a>
-            </figure>
-        }
-    </div>
-</main>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
 
 @Styles.Render("~/Content/Custom/galleries")
 

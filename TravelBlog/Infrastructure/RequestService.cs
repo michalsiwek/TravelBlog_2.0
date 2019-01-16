@@ -21,6 +21,10 @@ namespace TravelBlog.Infrastructure
                     return "Entries";
                 case "Gallery":
                     return "Galleries";
+                case "ContentCategory":
+                    return "ContentCategories";
+                case "ContentSubcategory":
+                    return "ContentSubcategories";
                 default:
                     return null;
             }

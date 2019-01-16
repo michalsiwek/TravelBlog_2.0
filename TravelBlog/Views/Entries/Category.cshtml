@@ -2,6 +2,8 @@
 @model EntriesViewModel
 
 <div id="scrollup" class="icon-angle-circled-up"></div>
+<div id="title-bar">@Model.Entries.First().CategoryName</div>
+<div id="title-bar-sticky">@Model.Entries.First().CategoryName</div>
 <div id="container">
     <main class="content-main-box">
         @foreach (var entry in Model.Entries)
@@ -27,7 +29,7 @@
         <div class="pagination">
             @if (Model.ActivePage > 1)
             {
-                <a href="/Entries?page=@(Model.ActivePage - 1)">&laquo;</a>
+                <a href="@Model.Entries.First().CategoryId?page=@(Model.ActivePage - 1)">&laquo;</a>
             }
             else
             {
@@ -41,12 +43,12 @@
                 }
                 else
                 {
-                    <a href="/Entries?page=@page.Index">@page.Index</a>
+                    <a href="@Model.Entries.First().CategoryId?page=@page.Index">@page.Index</a>
                 }
             }
             @if (Model.ActivePage < Model.AllPagesCount)
             {
-                <a href="/Entries?page=@(Model.ActivePage + 1)">&raquo;</a>
+                <a href="@Model.Entries.First().CategoryId?page=@(Model.ActivePage + 1)">&raquo;</a>
             }
             else
             {
@@ -56,15 +58,18 @@
     </main>
 
     <aside>
-        <div class="aside-content" class="aside-content">
-            <nav>
-                <h2>Kategorie</h2>
-                @foreach (var cat in Model.ContentCategories)
-                {
-                    <div class="aside-continent">@Html.ActionLink(@cat.Name, "Category", "Entries", new { id = @cat.Id }, null)</div>
-                }
-            </nav>
-            <br />
+        <div class="aside-content">
+            @if (Model.ContentSubcategories.Count() > 0)
+            {
+                <nav>
+                    <h2>@Model.Entries.First().CategoryName</h2>
+                    @foreach (var cat in Model.ContentSubcategories)
+                    {
+                        <div class="aside-continent">@Html.ActionLink(cat.Name, "Subcategory", "Entries", new { id = cat.Id }, null)</div>
+                    }
+                </nav>
+                <br />
+            }
             <div id="aside-sticky">
                 <div>
                     <h2>O blogu</h2>
@@ -85,9 +90,11 @@
                 </div>
             </div>
         </div>
+
     </aside>
 
 </div>
+
 
 @Styles.Render("~/Content/Custom/entries")
 
@@ -96,5 +103,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryscrollto")
-    @Scripts.Render("~/bundles/entries")
+    @Scripts.Render("~/bundles/spec-entries")
 }

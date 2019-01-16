@@ -5,12 +5,6 @@
     justify-content: center;
 }
 
-#entry-main {
-    display: block;
-    text-align: justify;
-    width: 750px;
-}
-
 #scrollup {
     position: fixed;
     right: 30px;

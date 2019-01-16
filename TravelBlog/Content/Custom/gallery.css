@@ -1,7 +1,28 @@
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#scrollup {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: none;
+    opacity: 0.2;
+}
+
+#scrollup:hover {
+    cursor: pointer;
+    color: #1c74b2;
+    opacity: 1;
+}
+
 #foto-preview
 {
     position: fixed;
-    z-index: 990;
+    z-index: 995;
     padding:0;
     margin:0;
     top:0;
@@ -107,12 +128,13 @@
     background-color: #0b63a1;
     cursor: pointer;
 }
-#gallery-container
-{
-    margin: 10px auto 50px auto;
+#gallery-container {
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
     font-size: 0;
-    max-width: 1300px;
 }
 .gallery-item
 {
@@ -122,15 +144,12 @@
 }
 .img-container
 {
-    width: 300px;
+    width: 290px;
     height: 200px;
     overflow: hidden;
 }
 .img-container img
 {
-    width: 100%;
-    min-width: 100%;
-    min-height: 100%;
     opacity: 0.9;
     transition: all 0.3s linear;
     -webkit-backface-visibility: hidden;
