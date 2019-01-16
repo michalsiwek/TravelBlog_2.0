@@ -5,6 +5,18 @@
 }
 
 <div id="scrollup" class="icon-angle-circled-up"></div>
+<section>
+    <div id="top-section">
+        <div class="paragraph">
+            <header>
+                <h2 class="article-header">Info</h2>
+            </header>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero ligula, porta quis quam at, convallis egestas lacus. Duis convallis efficitur volutpat. Nam pulvinar ullamcorper bibendum. Aenean sit amet justo in tellus porta pellentesque. Praesent tincidunt ornare nisi ac convallis. Etiam dictum molestie elementum. Etiam ullamcorper lectus et erat molestie, gravida consequat neque fringilla.
+            </p>
+        </div>
+    </div>
+</section>
 <div id="container">
     <main class="content-main-box">
         @foreach (var entry in Model.Entries)
@@ -18,7 +30,7 @@
                     <div class="entry-main-img">
                         <img src="@entry.ImageUrl" alt="entry-main-img"/>
                     </div>
-                    @foreach (var paragraph in entry.Content.Take(3))
+                    @foreach (var paragraph in entry.Content.Take(2))
                     {
                         <p>@paragraph</p>
                     }
@@ -27,35 +39,6 @@
                 </div>
             </article>
         }
-        <div class="pagination">
-            @if (Model.ActivePage > 1)
-            {
-                <a href="/Entries?page=@(Model.ActivePage - 1)">&laquo;</a>
-            }
-            else
-            {
-                <a href="#">&laquo;</a>
-            }
-            @foreach (var page in Model.Pages)
-            {
-                if (@page.Active)
-                {
-                    <a href="#" class="active-page">@page.Index</a>
-                }
-                else
-                {
-                    <a href="/Entries?page=@page.Index">@page.Index</a>
-                }
-            }
-            @if (Model.ActivePage < Model.AllPagesCount)
-            {
-                <a href="/Entries?page=@(Model.ActivePage + 1)">&raquo;</a>
-            }
-            else
-            {
-                <a href="#">&raquo;</a>
-            }
-        </div>
     </main>
 
     <aside>
@@ -81,15 +64,11 @@
             </div>
         </div>
     </aside>
-
 </div>
 
+@Styles.Render("~/Content/Custom/index")
 @Styles.Render("~/Content/Custom/entries")
-
-@section Scripts
-{
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jqueryscrollto")
-    @Scripts.Render("~/bundles/entries")
-}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jqueryscrollto")
+@Scripts.Render("~/bundles/entries")
