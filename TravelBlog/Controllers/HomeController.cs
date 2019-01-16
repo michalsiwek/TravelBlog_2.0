@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using TravelBlog.Infrastructure;
 using TravelBlog.Models;
 using TravelBlog.Models.Viewmodels;
 using TravelBlog.Repository;
@@ -17,15 +18,23 @@ namespace TravelBlog.Controllers
     public class HomeController : Controller
     {
         private readonly IRequestDataRepository _requestDataRepository;
+        private readonly IEntriesViewModelProvider _viewModelProvider;
 
-        public HomeController() => _requestDataRepository = new RequestDataRepository();
-
-        public ActionResult Index()
+        public HomeController()
         {
-            var viewModel = new EntriesViewModel
-            {
-                Entries = _requestDataRepository.GetTop3EntriesByCreateDate()
-            };
+            _requestDataRepository = new RequestDataRepository();
+            _viewModelProvider = new EntriesViewModelProvider(new PaginationHandler());
+        }
+
+        public ActionResult Index(int? page)
+        {
+            var entries = _requestDataRepository.GetEntriesByCreateDateDesc();
+
+            if (entries == null)
+                return RedirectToAction("NoContent", "Home");
+
+            var viewModel = _viewModelProvider.GetViewModel(page, entries, null);
+            viewModel.RandomEntry = _requestDataRepository.GetRandomEntry();
 
             return View(viewModel);
         }

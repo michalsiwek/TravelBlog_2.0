@@ -1,111 +1,95 @@
 ﻿@using TravelBlog.Models.Viewmodels
 @model EntriesViewModel
 @{
-    Layout = "~/Views/Shared/_MainPageLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main>
-    <article>
-        <section>
-            <div id="continents">
-                <figure class="continent">
-                    <a href="/Entries/Filter?categoryName=europa">
-                        <img src="/Images/alps.jpg" alt="europe" />
-                        <figcaption>Europa</figcaption>
-                    </a>
-                </figure><figure class="continent">
-                    <a href="/Entries/Filter?categoryName=ameryka-polnocna">
-                        <img src="/Images/new-york.jpg" alt="north-america" />
-                        <figcaption>Ameryka Płn.</figcaption>
-                    </a>
-                </figure><figure class="continent">
-                    <a href="/Entries/Filter?categoryName=ameryka-poludniowa">
-                        <img src="/Images/rio.jpg" alt="south-america" />
-                        <figcaption>Ameryka Płd.</figcaption>
-                    </a>
-                </figure><figure class="continent">
-                    <a href="/Entries/Filter?categoryName=azja-i-oceania">
-                        <img src="/Images/palawan.jpg" alt="asia" />
-                        <figcaption>Azja i Oceania</figcaption>
-                    </a>
-                </figure>
-            </div>
-        </section>
-
-        <section>
-            <div id="blog-profile">
-                <div class="paragraph">
+<div id="scrollup" class="icon-angle-circled-up"></div>
+<div id="container">
+    <main class="content-main-box">
+        @foreach (var entry in Model.Entries)
+        {
+            <article>
+                <div class="entry">
                     <header>
-                        <h2 class="article-header">Info</h2>
+                        <h1><a class="entry-title entry-title-font" href="/Entries/Entry/@entry.Id">@entry.Title</a></h1>
                     </header>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero ligula, porta quis quam at, convallis egestas lacus. Duis convallis efficitur volutpat. Nam pulvinar ullamcorper bibendum. Aenean sit amet justo in tellus porta pellentesque. Praesent tincidunt ornare nisi ac convallis. Etiam dictum molestie elementum. Etiam ullamcorper lectus et erat molestie, gravida consequat neque fringilla.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div id="about-author">
-                <div class="paragraph">
-                    <header>
-                        <h2 class="article-header">O autorze</h2>
-                    </header>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum malesuada volutpat massa, nec pulvinar eros dignissim sit amet. Vivamus sollicitudin lectus ipsum, a lacinia mauris tempus et. Fusce hendrerit vel lectus id mollis. Fusce ultricies suscipit lorem eu finibus. Integer pharetra ipsum at leo mattis, id tempor enim dictum. Duis eu faucibus lacus. Donec tristique sapien eu ante sagittis dapibus. Aliquam hendrerit ultricies eleifend. In mattis dolor ut neque sodales laoreet. Mauris in porttitor tellus. Aliquam a fringilla elit, et commodo lacus. Quisque nec sodales nunc. Aliquam dignissim purus blandit porta elementum. Curabitur et dui sem. Cras scelerisque, ex quis volutpat finibus, justo erat maximus leo, ac tincidunt ipsum lorem ac elit. Quisque ut libero in nisl lacinia pulvinar.
-                        <br><br>
-                        Morbi id enim volutpat, efficitur odio et, malesuada dui. Nunc congue ultricies turpis, dictum malesuada tellus auctor ac. Maecenas egestas laoreet suscipit. Morbi id eros sed risus lacinia interdum ut a neque. Nulla vitae placerat elit, eget imperdiet ex. Fusce sapien arcu, luctus finibus nisi in, euismod efficitur nunc. Curabitur sit amet urna posuere, tristique mauris eu, feugiat justo. Nunc ac diam quis lorem feugiat laoreet a ut lacus. Donec molestie, enim vel congue molestie, augue magna ultricies turpis, vel ultrices lorem turpis eget neque.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div id="last-entries">
-                <div class="paragraph">
-                    <header>
-                        <h2 class="article-header">Ostatnie wpisy</h2>
-                    </header>
-                </div>
-                <div class="entries-box">
-                    @foreach (var entry in Model.Entries)
+                    <p class="entry-data">@entry.CreateDate.ToShortDateString() | @entry.CreateDate.ToShortTimeString() | @entry.Author</p>
+                    <div class="entry-main-img">
+                        <img src="@entry.ImageUrl" alt="entry-main-img"/>
+                    </div>
+                    @foreach (var paragraph in entry.Content.Take(3))
                     {
-                        <div class="entry">
-                            <a href="/Entries/Entry/@entry.Id">
-                                <div class="img-container">
-                                    <img src="@entry.ImageUrl" alt="entry-main-img" />
-                                </div>
-                                <div>
-                                    <h3 class="entry-title-font">@entry.Title</h3>
-                                    <p>
-                                        @entry.Description
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
+                        <p>@paragraph</p>
                     }
+                    <a class="go-to-entry" href="/Entries/Entry/@entry.Id">Czytaj</a>
+
+                </div>
+            </article>
+        }
+        <div class="pagination">
+            @if (Model.ActivePage > 1)
+            {
+                <a href="/Entries?page=@(Model.ActivePage - 1)">&laquo;</a>
+            }
+            else
+            {
+                <a href="#">&laquo;</a>
+            }
+            @foreach (var page in Model.Pages)
+            {
+                if (@page.Active)
+                {
+                    <a href="#" class="active-page">@page.Index</a>
+                }
+                else
+                {
+                    <a href="/Entries?page=@page.Index">@page.Index</a>
+                }
+            }
+            @if (Model.ActivePage < Model.AllPagesCount)
+            {
+                <a href="/Entries?page=@(Model.ActivePage + 1)">&raquo;</a>
+            }
+            else
+            {
+                <a href="#">&raquo;</a>
+            }
+        </div>
+    </main>
+
+    <aside>
+        <div class="aside-content">
+            <div id="aside-sticky">
+                <div>
+                    <h2>O blogu</h2>
+                    <p style="text-align: justify;">Suspendisse placerat felis nec auctor gravida. Sed at leo congue, scelerisque felis et, vestibulum mi. Suspendisse potenti. Integer rutrum a augue sit amet imperdiet. Vivamus a semper odio. Nullam augue felis, laoreet eu ligula vitae, rutrum interdum metus.</p>
+                </div>
+                <br/>
+                <div>
+                    <h2>Może Cię zainteresować</h2>
+                    <div id="random-entry">
+                        <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                            <img src="@Model.RandomEntry.ImageUrl" alt="image"/>
+                            <div id="random-entry-cover"></div>
+                            <div id="random-entry-caption">
+                                <span>@Model.RandomEntry.Title</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </aside>
 
-        <section>
-            <div id="contact">
-                <div class="paragraph">
-                    <header>
-                        <h2 class="article-header">Kontakt</h2>
-                    </header>
-                    <p>
-                        Mauris eu blandit eros. Cras tellus urna, efficitur ac ipsum id, elementum eleifend elit. Curabitur a lacinia neque. Nam fermentum sapien sit amet velit pretium, at aliquet quam vehicula. In varius odio sit amet volutpat rutrum. Praesent fermentum odio vel quam ultrices pulvinar. Fusce ultrices purus eu leo posuere, eget tempor est dapibus. Donec id efficitur eros, et dignissim turpis. Curabitur eu lectus urna. Pellentesque ac lorem diam.
-                    </p>
-                    <button id="msg-button" onclick="location.href='@Url.Action("Index", "Contact")'">Napisz wiadomość</button>
-                </div>
-            </div>
-        </section>
-    </article>
-</main>
+</div>
 
-@Styles.Render("~/Content/Custom/index")
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryval")
-@Scripts.Render("~/bundles/jqueryscrollto")
-@Scripts.Render("~/bundles/index")
+@Styles.Render("~/Content/Custom/entries")
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryscrollto")
+    @Scripts.Render("~/bundles/entries")
+}
