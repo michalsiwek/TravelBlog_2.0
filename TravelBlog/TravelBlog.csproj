@@ -191,7 +191,6 @@
     <Content Include="Content\Custom\galleries.css" />
     <Content Include="Content\Custom\gallery.css" />
     <Content Include="Content\Custom\general.css" />
-    <Content Include="Content\Custom\index.css" />
     <Content Include="Content\Custom\index2.css" />
     <Content Include="Content\Custom\nocontent.css" />
     <Content Include="Content\Custom\spec-entries.css" />
@@ -250,7 +249,6 @@
     <Content Include="Views\Entries\Category.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Entries\Entry.cshtml" />
-    <Content Include="Views\Shared\_MainPageLayout.cshtml" />
     <Content Include="Views\Galleries\Index.cshtml" />
     <Content Include="Views\Galleries\Gallery.cshtml" />
     <Content Include="Views\Home\NoContent.cshtml" />
