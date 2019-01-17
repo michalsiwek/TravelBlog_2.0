@@ -191,7 +191,7 @@
     <Content Include="Content\Custom\galleries.css" />
     <Content Include="Content\Custom\gallery.css" />
     <Content Include="Content\Custom\general.css" />
-    <Content Include="Content\Custom\index2.css" />
+    <Content Include="Content\Custom\index.css" />
     <Content Include="Content\Custom\nocontent.css" />
     <Content Include="Content\Custom\spec-entries.css" />
     <Content Include="Content\Fontello\animation.css" />

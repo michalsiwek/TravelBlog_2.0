@@ -74,7 +74,7 @@ namespace TravelBlog
 
             bundles.Add(new StyleBundle("~/Content/Custom/index").Include(
                 "~/Content/Custom/general.css",
-                "~/Content/Custom/index2.css"
+                "~/Content/Custom/index.css"
             ));
 
             bundles.Add(new StyleBundle("~/Content/Custom/entries").Include(
