@@ -1,0 +1,54 @@
+﻿@using TravelBlog.Models.Viewmodels
+@model AboutMeViewModel
+
+<div id="scrollup" class="icon-angle-circled-up"></div>
+<div id="container">
+    <main class="content-main-box">
+        <article>
+            <header>
+                <h1 class="article-header">O mnie</h1>
+            </header>
+            <p>
+                Mauris quam massa, fringilla sit amet tellus eget, efficitur sollicitudin lacus. Sed id metus vestibulum, sagittis neque ullamcorper, vulputate sem. Nunc aliquet lectus a nulla scelerisque, vel tristique tortor lobortis. Curabitur turpis turpis, mollis a dignissim vitae, feugiat ac lorem. Proin vitae sodales neque. Mauris urna arcu, viverra in volutpat a, pretium eget nulla. Praesent aliquam aliquam libero, nec varius nisl finibus sit amet. In et fringilla purus, eu gravida lorem. Vivamus porttitor faucibus risus ut sollicitudin. Donec ultrices purus elit, sit amet mattis ex congue vel. Nullam scelerisque, magna a eleifend ultricies, mi ipsum eleifend est, nec bibendum lectus odio non sapien. Duis sed quam eu velit egestas porta. Phasellus varius dapibus ante, facilisis lacinia odio fermentum nec. Nunc odio libero, vehicula fermentum ultricies non, sagittis eu massa. Vestibulum sollicitudin leo quis turpis consectetur scelerisque. Phasellus vitae pharetra erat.
+            </p>
+            <p>
+                Suspendisse varius felis eu fermentum malesuada. Nam ultrices tincidunt mauris pharetra accumsan. Praesent consectetur sollicitudin ex ac iaculis. Cras nec consectetur eros, at sagittis orci. Aenean placerat venenatis velit, quis porttitor est egestas in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis molestie lectus ac metus facilisis, ac scelerisque metus laoreet. Vestibulum mollis non augue nec dapibus. Phasellus molestie erat nec nisl rhoncus consectetur. Sed eget neque metus. Sed mi nibh, sodales non nunc at, elementum luctus nulla. Cras lobortis nisi non eros hendrerit bibendum a et lacus.
+            </p>
+            <p>
+                Sed leo turpis, ornare eget malesuada et, luctus sit amet felis. Proin gravida dictum turpis ac vestibulum. Aliquam in lectus placerat, tristique mi dictum, finibus lacus. Aliquam ac tempor metus. Praesent laoreet eget dui id condimentum. Cras interdum accumsan condimentum. Phasellus tempus convallis ante quis ornare. Vivamus egestas enim et lacus maximus, vel mollis est feugiat. Vestibulum ac leo nec justo tempor fermentum et sit amet ipsum. In ac sem sem.
+            </p>
+        </article>
+    </main>
+
+    <aside>
+        <div class="aside-content">
+            <div id="aside-sticky">
+                <div>
+                    <h2>O blogu</h2>
+                    <p style="text-align: justify;">Suspendisse placerat felis nec auctor gravida. Sed at leo congue, scelerisque felis et, vestibulum mi. Suspendisse potenti. Integer rutrum a augue sit amet imperdiet. Vivamus a semper odio. Nullam augue felis, laoreet eu ligula vitae, rutrum interdum metus.</p>
+                </div>
+                <br />
+                <div>
+                    <h2>Może Cię zainteresować</h2>
+                    <div id="random-entry">
+                        <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                            <img src="@Model.RandomEntry.ImageUrl" alt="image" />
+                            <div id="random-entry-cover"></div>
+                            <div id="random-entry-caption">
+                                <span>@Model.RandomEntry.Title</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+
+@Styles.Render("~/Content/Custom/index")
+@Styles.Render("~/Content/Custom/entries")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jqueryscrollto")
+@Scripts.Render("~/bundles/entries")
+@Scripts.Render("~/bundles/index")

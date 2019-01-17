@@ -25,6 +25,8 @@ namespace TravelBlog
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/bootstrap.js"));
 
+            // SCRIPTS
+
             bundles.Add(new ScriptBundle("~/bundles/entry").Include(
                 "~/Scripts/Custom/disqus.js",
                 "~/Scripts/Custom/stickyRightAside.js",
@@ -62,6 +64,8 @@ namespace TravelBlog
                 "~/Scripts/Custom/imageScale.js",
                 "~/Scripts/Custom/stickyRightAside.js",
                 "~/Scripts/Custom/indexScrollToContact.js"));
+
+            // STYLES
 
             bundles.Add(new StyleBundle("~/Content/Fontello").Include(
                 "~/Content/Fontello/animation.css",

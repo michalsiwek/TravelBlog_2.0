@@ -2,18 +2,11 @@
 @model ContactViewModel
 
 <div id="container">
-    <aside>
-        <div class="aside-content">
-            <div class="aside-ad-box">
-                <img src="/Images/ad_placeholder.jpg">
-            </div>
-        </div>
-    </aside>
-    <main>
+    <main class="content-main-box">
         <article>
-            <div id="content">
+            <div>
                 <header>
-                    <h1>Formularz kontaktowy</h1>
+                    <h1 class="article-header">Formularz kontaktowy</h1>
                 </header>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce libero ligula, porta quis quam at, convallis egestas lacus. Duis convallis efficitur volutpat. Nam pulvinar ullamcorper bibendum. Aenean sit amet justo in tellus porta pellentesque. Praesent tincidunt ornare nisi ac convallis. Etiam dictum molestie elementum. Etiam ullamcorper lectus et erat molestie, gravida consequat neque fringilla.
@@ -34,20 +27,28 @@
             </div>
 
         </article>
-
     </main>
 
     <aside>
         <div class="aside-content">
-            <nav>
-                <h2>Kontynenty</h2>
-                <div class="aside-continent">@Html.ActionLink("Europa", "Filter", "Entries", new { categoryName = "europa" }, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Ameryka Płn", "Filter", "Entries", new { categoryName = "ameryka-polnocna" }, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Ameryka Płd", "Filter", "Entries", new { categoryName = "ameryka-poludniowa" }, null)</div>
-                <div class="aside-continent">@Html.ActionLink("Azja i Oceania", "Filter", "Entries", new { categoryName = "azja-i-oceania" }, null)</div>
-            </nav>
-            <div class="aside-ad-box">
-                <img src="/Images/ad_placeholder.jpg">
+            <div id="aside-sticky">
+                <div>
+                    <h2>O blogu</h2>
+                    <p style="text-align: justify;">Suspendisse placerat felis nec auctor gravida. Sed at leo congue, scelerisque felis et, vestibulum mi. Suspendisse potenti. Integer rutrum a augue sit amet imperdiet. Vivamus a semper odio. Nullam augue felis, laoreet eu ligula vitae, rutrum interdum metus.</p>
+                </div>
+                <br />
+                <div>
+                    <h2>Może Cię zainteresować</h2>
+                    <div id="random-entry">
+                        <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                            <img src="@Model.RandomEntry.ImageUrl" alt="image" />
+                            <div id="random-entry-cover"></div>
+                            <div id="random-entry-caption">
+                                <span>@Model.RandomEntry.Title</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </aside>

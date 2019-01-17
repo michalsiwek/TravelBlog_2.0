@@ -95,12 +95,13 @@ button {
 {
     margin-bottom: 40px;
 }
-.article-header
-{
+.article-header {
     color: #1c74b2;
     display: flex;
     align-content: center;
     line-height: 0;
+    margin: 50px 0 70px 0;
+    font-size: 36px;
 }
 .article-header::before,
 .article-header::after

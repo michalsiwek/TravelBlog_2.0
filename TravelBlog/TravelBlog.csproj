@@ -169,6 +169,7 @@
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\Picture.cs" />
+    <Compile Include="Models\Viewmodels\AboutMeViewModel.cs" />
     <Compile Include="Models\Viewmodels\ContactViewModel.cs" />
     <Compile Include="Models\Viewmodels\EntriesViewModel.cs" />
     <Compile Include="Models\Viewmodels\EntryViewModel.cs" />
@@ -256,9 +257,11 @@
     <Content Include="Views\Entries\Subcategory.cshtml" />
     <Content Include="Views\Galleries\Category.cshtml" />
     <Content Include="Views\Galleries\Subcategory.cshtml" />
+    <Content Include="Views\Home\AboutMe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\About\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

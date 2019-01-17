@@ -18,12 +18,10 @@ namespace TravelBlog.Controllers
     public class HomeController : Controller
     {
         private readonly IRequestDataRepository _requestDataRepository;
-        private readonly IEntriesViewModelProvider _viewModelProvider;
 
         public HomeController()
         {
             _requestDataRepository = new RequestDataRepository();
-            _viewModelProvider = new EntriesViewModelProvider(new PaginationHandler());
         }
 
         public ActionResult Index(int? page)
@@ -37,6 +35,16 @@ namespace TravelBlog.Controllers
             {
                 LastEntries = _requestDataRepository.GetTop3EntriesByCreateDate(),
                 OtherEntries = _requestDataRepository.GetEntriesByCreateDateDesc().Skip(3).Take(5),
+                RandomEntry = _requestDataRepository.GetRandomEntry()
+            };
+
+            return View(viewModel);
+        }
+
+        public ActionResult AboutMe()
+        {
+            var viewModel = new AboutMeViewModel
+            {
                 RandomEntry = _requestDataRepository.GetRandomEntry()
             };
 

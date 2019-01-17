@@ -10,7 +10,6 @@
 {
     display: block;
     text-align: justify;
-    max-width: 750px;
     min-width: 300px;
     margin-bottom: 100px;
 }
@@ -37,6 +36,7 @@ h4
     flex-flow: column;
     padding-left: 80px;
     padding-right: 80px;
+    margin-bottom: 100px
 }
 
 #contact-form input
