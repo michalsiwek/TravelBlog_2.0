@@ -1,20 +1,15 @@
 ﻿$(window).on('load', function () { imageScale() });
 
 function imageScale() {
-    var container = $(".img-container").first();
-    console.log(container.outerWidth());
-    console.log(container.outerHeight());
-    var containerRatio = container.outerWidth() / container.outerHeight();
-    console.log(containerRatio);
-    var images = $(".resizable-pic");
-    for (i = 0; i < images.length; i++) {
-        var pic = images[i];
-        var ratio = pic.width / pic.height;
-        console.log(ratio);
+    var containers = $(".img-container");
+    for (i = 0; i < containers.length; i++) {
+        var containerRatio = containers[i].offsetWidth / containers[i].offsetHeight;
+        var image = containers[i].children[0];
+        var ratio = image.width / image.height;
         if (ratio < containerRatio) {
-            pic.style = "width: 100%;";
+            image.style = "width: 100%;";
         } else {
-            pic.style = "height: 100%;";
+            image.style = "height: 100%;";
         }
     }
 }

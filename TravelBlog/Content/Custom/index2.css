@@ -19,7 +19,6 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    padding: 50px 20px 20px 20px;
     background-color: rgba(0, 0, 0, 0.6);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
@@ -38,6 +37,7 @@
 .img-container {
     height: 540px;
     position: relative;
+    overflow: hidden;
 }
 
 .resisable-pic {
@@ -45,15 +45,10 @@
     height: 600px;
 }
 
-.secondary-pic {
-    width: 340px;
-    height: 240px;
-}
-
 /* PRIMARY */
 .primary-entry {
     margin: 0;
-    width: 700px;
+    width: 750px;
     height: 600px;
     overflow: hidden;
     position: relative;
@@ -82,43 +77,55 @@
 }
 
 .primary-entry-caption {
-    width: 234px;
-    height: 384px;
-    line-height: 380px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-align: center;
-    margin-top: 6px;
-    margin-left: 6px;
-    z-index: 990;
-    font-family: 'Marmelad', sans-serif;
-    font-size: 30px;
-    transition: all 0.3s linear;
-    border: 2px solid #555555;
+    padding: 30px 30px 10px 30px;
 }
 
-.primary-entry-caption span {
+.primary-entry-title {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
-    padding: 10px;
+    margin-top: 0;
+    font-size: 30px;
+    font-family: 'Marmelad', sans-serif;
+}
+
+.secondary-entry-caption {
+    padding: 10px 20px 0 20px;
+}
+
+.primary-entry-autor {
+    font-size: 16px;
+    color: #888888;
+}
+
+.secondary-entry-title {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    margin-top: 0;
+    font-size: 20px;
+    font-family: 'Marmelad', sans-serif;
+}
+
+.secondary-entry-autor {
+    font-size: 14px;
+    color: #888888;
 }
 
 /* SECONDARY */
 
 .secondary-entry {
-    width: 340px;
-    height: 250px;
+    width: 400px;
     margin: 0 0 20px 20px;
 }
 
 #secondary-entries-container {
     margin-top: 30px;
+    width: 400px;
 }
 
 .secondary-entry-img {
-    height: 270px !important;
-    width: 340px;
+    height: 260px !important;
+    width: 400px;
     height: 240px;
 }

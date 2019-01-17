@@ -33,8 +33,12 @@ namespace TravelBlog.Controllers
             if (entries == null)
                 return RedirectToAction("NoContent", "Home");
 
-            var viewModel = _viewModelProvider.GetViewModel(page, entries, null);
-            viewModel.RandomEntry = _requestDataRepository.GetRandomEntry();
+            var viewModel = new HomeViewModel
+            {
+                LastEntries = _requestDataRepository.GetTop3EntriesByCreateDate(),
+                OtherEntries = _requestDataRepository.GetEntriesByCreateDateDesc().Skip(3).Take(5),
+                RandomEntry = _requestDataRepository.GetRandomEntry()
+            };
 
             return View(viewModel);
         }

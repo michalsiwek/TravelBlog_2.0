@@ -1,5 +1,5 @@
 ﻿@using TravelBlog.Models.Viewmodels
-@model EntriesViewModel
+@model HomeViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,37 +9,37 @@
     <div id="top-section">
         <div id="entries-container">
             <div class="primary-entry">
-                <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                <a href="/Entries/Entry/@Model.LastEntries.ElementAt(0).Id">
                     <div class="img-container">
-                        <img class="resizable-pic" src="@Model.RandomEntry.ImageUrl" alt="image" />
-                        <div class="entry-caption">
-                            <span>@Model.RandomEntry.Title</span>
+                        <img class="resizable-pic" src="@Model.LastEntries.ElementAt(0).ImageUrl" alt="image" />
+                        <div class="entry-caption primary-entry-caption">
+                            <p class="primary-entry-autor">@Model.LastEntries.ElementAt(0).CreateDate.ToShortDateString() | @Model.LastEntries.ElementAt(0).Author</p>
+                            <p class="primary-entry-title">@Model.LastEntries.ElementAt(0).Title</p>
                         </div>
                     </div>
-                    <div id="primary-entry-cover"></div>
                 </a>
             </div>
             <div id="secondary-entries-container">
                 <div class="secondary-entry">
-                    <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                    <a href="/Entries/Entry/@Model.LastEntries.ElementAt(1).Id">
                         <div class="img-container secondary-entry-img">
-                            <img class="resizable-pic secondary-pic" src="@Model.RandomEntry.ImageUrl" alt="image" />
-                            <div class="entry-caption">
-                                <span>@Model.RandomEntry.Title</span>
+                            <img class="resizable-pic secondary-pic" src="@Model.LastEntries.ElementAt(1).ImageUrl" alt="image" />
+                            <div class="entry-caption secondary-entry-caption">
+                                <p class="secondary-entry-autor">@Model.LastEntries.ElementAt(1).CreateDate.ToShortDateString() | @Model.LastEntries.ElementAt(1).Author</p>
+                                <p class="secondary-entry-title">@Model.LastEntries.ElementAt(1).Title</p>
                             </div>
                         </div>
-                        <div class="entry-cover"></div>
                     </a>
                 </div>
                 <div class="secondary-entry">
-                    <a href="/Entries/Entry/@Model.RandomEntry.Id">
+                    <a href="/Entries/Entry/@Model.LastEntries.ElementAt(2).Id">
                         <div class="img-container secondary-entry-img">
-                            <img class="resizable-pic secondary-pic" src="@Model.RandomEntry.ImageUrl" alt="image" />
-                            <div class="entry-caption">
-                                <span>@Model.RandomEntry.Title</span>
+                            <img class="resizable-pic secondary-pic" src="@Model.LastEntries.ElementAt(2).ImageUrl" alt="image" />
+                            <div class="entry-caption secondary-entry-caption">
+                                <p class="secondary-entry-autor">@Model.LastEntries.ElementAt(2).CreateDate.ToShortDateString() | @Model.LastEntries.ElementAt(2).Author</p>
+                                <p class="secondary-entry-title">@Model.LastEntries.ElementAt(2).Title</p>
                             </div>
                         </div>
-                        <div id="primary-entry-cover"></div>
                     </a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
 </section>
 <div id="container">
     <main class="content-main-box">
-        @foreach (var entry in Model.Entries)
+        @foreach (var entry in Model.OtherEntries)
         {
             <article>
                 <div class="entry">
